@@ -1,0 +1,94 @@
+
+# ==========================================
+# Visual Studio
+# ==========================================
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.ide
+
+# ==========================================
+# Build outputs
+# ==========================================
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+out/
+artifacts/
+
+# ==========================================
+# Visual Studio extensions and generated files
+# ==========================================
+*.cache
+*.pdb
+*.mdb
+*.ilk
+*.obj
+*.pch
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+*.pidb
+*.svclog
+*.scc
+
+# ==========================================
+# NuGet
+# ==========================================
+packages/
+*.nupkg
+*.snupkg
+
+# Keep NuGet configuration files unless they contain secrets.
+# !NuGet.Config
+
+# ==========================================
+# SQLite database files
+# ==========================================
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+
+# SQLite journal, WAL, and shared-memory files
+*.db-journal
+*.sqlite-journal
+*-wal
+*-shm
+
+# ==========================================
+# Operating system files
+# ==========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ==========================================
+# User-specific configuration and secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+secrets.json
+appsettings.Local.json
+
+# ==========================================
+# Test and coverage outputs
+# ==========================================
+TestResults/
+coverage/
+coverage.*
+
+# ==========================================
+# Publish outputs
+# ==========================================
+publish/

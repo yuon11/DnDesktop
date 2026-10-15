@@ -1,0 +1,3108 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-08-12T02:34:28.0182667Z",
+  "analysisEndTime": "2026-08-12T02:34:28.2945112Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 7,
+      "incidents": 141,
+      "effort": 141
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 130,
+        "Optional": 0,
+        "Potential": 11,
+        "Information": 0
+      },
+      "category": {
+        "Project": 2,
+        "Api": 139
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "DnDesktop.csproj",
+      "startingProject": true,
+      "issues": 5,
+      "storyPoints": 141,
+      "properties": {
+        "appName": "DnDesktop",
+        "projectKind": "ClassicWpf",
+        "frameworks": [
+          "net48"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": false,
+        "numberOfFiles": 10,
+        "numberOfCodeFiles": 9,
+        "linesTotal": 729,
+        "linesOfCode": 612,
+        "totalApiScanned": 678,
+        "minLinesOfCodeToChange": 139,
+        "maxLinesOfCodeToChange": 139
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "76c29861-59f1-45e6-897a-70c5ae8a29bf",
+          "ruleId": "Project.0001",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "DnDesktop.csproj"
+          }
+        },
+        {
+          "incidentId": "2c7fdb7c-360c-4c1f-b537-6611552a56ba",
+          "ruleId": "Project.0002",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: .NETFramework,Version=v4.8\nRecommended target framework: net10.0-windows",
+              "protected": "Current target framework: .NETFramework,Version=v4.8\nRecommended target framework: net10.0-windows"
+            },
+            "kind": "File",
+            "path": "DnDesktop.csproj",
+            "snippet": "Current target framework: .NETFramework,Version=v4.8\nRecommended target framework: net10.0-windows",
+            "protectedSnippet": "Current target framework: .NETFramework,Version=v4.8\nRecommended target framework: net10.0-windows",
+            "properties": {
+              "CurrentTargetFramework": ".NETFramework,Version=v4.8",
+              "RecommendedTargetFramework": "net10.0-windows"
+            }
+          }
+        },
+        {
+          "incidentId": "114a2409-ff58-433e-9c9b-832777ac384b",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Configuration.ConfigurationManager, 9.0.0-preview.6.24302.3. Add package reference to System.Configuration.ConfigurationManager, 9.0.0-preview.6.24302.3",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ApplicationSettingsBase",
+              "protected": "M:System.Configuration.ApplicationSettingsBase.#ctor"
+            },
+            "kind": "File",
+            "path": "Properties\\Settings.Designer.cs",
+            "snippet": "ApplicationSettingsBase",
+            "protectedSnippet": "M:System.Configuration.ApplicationSettingsBase.#ctor",
+            "label": "M:System.Configuration.ApplicationSettingsBase.#ctor",
+            "properties": {
+              "PackageId": "System.Configuration.ConfigurationManager",
+              "PackageNewVersion": "9.0.0-preview.6.24302.3"
+            },
+            "line": 15,
+            "column": 74
+          }
+        },
+        {
+          "incidentId": "9c413dd6-8908-4a1a-8bb0-bd3081bfb914",
+          "ruleId": "Api.0002",
+          "description": "API is available in package System.Configuration.ConfigurationManager, 9.0.0-preview.6.24302.3. Add package reference to System.Configuration.ConfigurationManager, 9.0.0-preview.6.24302.3",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ApplicationSettingsBase",
+              "protected": "T:System.Configuration.ApplicationSettingsBase"
+            },
+            "kind": "File",
+            "path": "Properties\\Settings.Designer.cs",
+            "snippet": "ApplicationSettingsBase",
+            "protectedSnippet": "T:System.Configuration.ApplicationSettingsBase",
+            "label": "T:System.Configuration.ApplicationSettingsBase",
+            "properties": {
+              "PackageId": "System.Configuration.ConfigurationManager",
+              "PackageNewVersion": "9.0.0-preview.6.24302.3"
+            },
+            "line": 15,
+            "column": 74
+          }
+        },
+        {
+          "incidentId": "018dddc2-1d5c-45ff-992c-291676f4bec1",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.CharacterList.MouseDoubleClick \u002B= new System.Windows.Input.MouseButtonEventHandler(this.CharacterList_MouseDoubleClick);",
+              "protected": "T:System.Windows.Controls.ListView"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "this.CharacterList.MouseDoubleClick \u002B= new System.Windows.Input.MouseButtonEventHandler(this.CharacterList_MouseDoubleClick);",
+            "protectedSnippet": "T:System.Windows.Controls.ListView",
+            "label": "T:System.Windows.Controls.ListView",
+            "line": 108,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "678955b5-2341-4a65-a9b9-33d3e65e3965",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.CharacterList.MouseDoubleClick \u002B= new System.Windows.Input.MouseButtonEventHandler(this.CharacterList_MouseDoubleClick);",
+              "protected": "T:System.Windows.Input.MouseButtonEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "this.CharacterList.MouseDoubleClick \u002B= new System.Windows.Input.MouseButtonEventHandler(this.CharacterList_MouseDoubleClick);",
+            "protectedSnippet": "T:System.Windows.Input.MouseButtonEventHandler",
+            "label": "T:System.Windows.Input.MouseButtonEventHandler",
+            "line": 108,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3a34d0cc-d7ca-42af-bcd5-9fa22831f5d9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.CharacterList.MouseDoubleClick \u002B= new System.Windows.Input.MouseButtonEventHandler(this.CharacterList_MouseDoubleClick);",
+              "protected": "T:System.Windows.Input.MouseButtonEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "this.CharacterList.MouseDoubleClick \u002B= new System.Windows.Input.MouseButtonEventHandler(this.CharacterList_MouseDoubleClick);",
+            "protectedSnippet": "T:System.Windows.Input.MouseButtonEventHandler",
+            "label": "T:System.Windows.Input.MouseButtonEventHandler",
+            "line": 108,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b6995afb-da0c-4776-8e42-05435d1c374d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.CharacterList.MouseDoubleClick \u002B= new System.Windows.Input.MouseButtonEventHandler(this.CharacterList_MouseDoubleClick);",
+              "protected": "E:System.Windows.Controls.Control.MouseDoubleClick"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "this.CharacterList.MouseDoubleClick \u002B= new System.Windows.Input.MouseButtonEventHandler(this.CharacterList_MouseDoubleClick);",
+            "protectedSnippet": "E:System.Windows.Controls.Control.MouseDoubleClick",
+            "label": "E:System.Windows.Controls.Control.MouseDoubleClick",
+            "line": 108,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "dacbe8b5-9f60-4780-a5f3-6a9627ee101a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.CharacterList = ((System.Windows.Controls.ListView)(target));",
+              "protected": "T:System.Windows.Controls.ListView"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "this.CharacterList = ((System.Windows.Controls.ListView)(target));",
+            "protectedSnippet": "T:System.Windows.Controls.ListView",
+            "label": "T:System.Windows.Controls.ListView",
+            "line": 105,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8f67c5bd-4f89-4eac-8d0f-ebbc815dfb15",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.DeleteCharacter_Click);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.DeleteCharacter_Click);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 99,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "50781aa7-818b-44c7-ab58-77ac669e78ea",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.DeleteCharacter_Click);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.DeleteCharacter_Click);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 99,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a5fd5128-94ae-4339-b6c7-a65ae2e46e1b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.DeleteCharacter_Click);",
+              "protected": "E:System.Windows.Controls.Primitives.ButtonBase.Click"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.DeleteCharacter_Click);",
+            "protectedSnippet": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "label": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "line": 99,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "fb9f276a-b7ea-4eb7-95fb-dedf65f1b6db",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.EditCharacter_Click);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.EditCharacter_Click);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "754362ad-4137-46d8-9961-67b27f09562a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.EditCharacter_Click);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.EditCharacter_Click);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "79ef001b-839d-4d03-b64f-41ff0f6db3d8",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.EditCharacter_Click);",
+              "protected": "E:System.Windows.Controls.Primitives.ButtonBase.Click"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.EditCharacter_Click);",
+            "protectedSnippet": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "label": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a97650a7-0483-42a5-8e79-281d5234624a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.CreateCharacter_Click);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.CreateCharacter_Click);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 83,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "05c366d8-dd9b-448c-8106-ac18f509e082",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.CreateCharacter_Click);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.CreateCharacter_Click);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 83,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "9f7398fc-ccc6-4c72-b961-73703694d672",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.CreateCharacter_Click);",
+              "protected": "E:System.Windows.Controls.Primitives.ButtonBase.Click"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.CreateCharacter_Click);",
+            "protectedSnippet": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "label": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "line": 83,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f45a8b2b-452c-4d5c-91c5-f1326243e25b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+              "protected": "T:System.Windows.Application"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+            "protectedSnippet": "T:System.Windows.Application",
+            "label": "T:System.Windows.Application",
+            "line": 65,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "9d23b1b9-24ff-40ca-811f-178bf82331a9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+              "protected": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+            "protectedSnippet": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)",
+            "label": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)",
+            "line": 65,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b778a787-ad7a-467e-bd67-88293e662e86",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/characterspage.xaml\u0022, System.UriKind.Relative);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/characterspage.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 62,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "55367418-c754-4b5c-a90b-37137d50f835",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/characterspage.xaml\u0022, System.UriKind.Relative);",
+              "protected": "M:System.Uri.#ctor(System.String,System.UriKind)"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/characterspage.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "M:System.Uri.#ctor(System.String,System.UriKind)",
+            "label": "M:System.Uri.#ctor(System.String,System.UriKind)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 62,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "89c0e77f-7821-4d59-9b87-99127112b0b1",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "CharacterList",
+              "protected": "T:System.Windows.Controls.ListView"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "CharacterList",
+            "protectedSnippet": "T:System.Windows.Controls.ListView",
+            "label": "T:System.Windows.Controls.ListView",
+            "line": 45,
+            "column": 50
+          }
+        },
+        {
+          "incidentId": "956005a7-57cb-418f-a61c-06efa810e77e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "private void CharacterList_MouseDoubleClick(\r\n            object sender,\r\n            MouseButtonEventArgs e)",
+              "protected": "T:System.Windows.Input.MouseButtonEventArgs"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "private void CharacterList_MouseDoubleClick(\r\n            object sender,\r\n            MouseButtonEventArgs e)",
+            "protectedSnippet": "T:System.Windows.Input.MouseButtonEventArgs",
+            "label": "T:System.Windows.Input.MouseButtonEventArgs",
+            "line": 125,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "4b5f32ce-c8c1-4338-a2bd-2bfd403f165f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+              "protected": "T:System.Windows.Navigation.NavigationService"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+            "protectedSnippet": "T:System.Windows.Navigation.NavigationService",
+            "label": "T:System.Windows.Navigation.NavigationService",
+            "line": 132,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1f7dcdd5-6057-4783-b1e1-613f6a1171b0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+              "protected": "P:System.Windows.Controls.Page.NavigationService"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+            "protectedSnippet": "P:System.Windows.Controls.Page.NavigationService",
+            "label": "P:System.Windows.Controls.Page.NavigationService",
+            "line": 132,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "aa8c684c-0ca0-4f2c-8edd-029672e21b1e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+              "protected": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+            "protectedSnippet": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)",
+            "label": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)",
+            "line": 132,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "085cb82f-da8c-4c76-a50c-cc800ccb0a55",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "private void DeleteCharacter_Click(\r\n            object sender,\r\n            RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "private void DeleteCharacter_Click(\r\n            object sender,\r\n            RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 95,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "dc3621e8-fbc9-486b-97cb-26b06005965f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (result == MessageBoxResult.Yes)\r\n            {\r\n                Characters.Remove(SelectedCharacter);\r\n\r\n                SelectedCharacter = null;\r\n            }",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "if (result == MessageBoxResult.Yes)\r\n            {\r\n                Characters.Remove(SelectedCharacter);\r\n\r\n                SelectedCharacter = null;\r\n            }",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 116,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1ba8db7a-156b-4c00-afda-fe24301ade8d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (result == MessageBoxResult.Yes)\r\n            {\r\n                Characters.Remove(SelectedCharacter);\r\n\r\n                SelectedCharacter = null;\r\n            }",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "if (result == MessageBoxResult.Yes)\r\n            {\r\n                Characters.Remove(SelectedCharacter);\r\n\r\n                SelectedCharacter = null;\r\n            }",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 116,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "14389ab4-2dea-41ec-96a1-62aba9761bf3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (result == MessageBoxResult.Yes)\r\n            {\r\n                Characters.Remove(SelectedCharacter);\r\n\r\n                SelectedCharacter = null;\r\n            }",
+              "protected": "F:System.Windows.MessageBoxResult.Yes"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "if (result == MessageBoxResult.Yes)\r\n            {\r\n                Characters.Remove(SelectedCharacter);\r\n\r\n                SelectedCharacter = null;\r\n            }",
+            "protectedSnippet": "F:System.Windows.MessageBoxResult.Yes",
+            "label": "F:System.Windows.MessageBoxResult.Yes",
+            "line": 116,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1d71d584-0c48-438c-bc49-fc6d0c40a204",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "T:System.Windows.MessageBoxImage"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "T:System.Windows.MessageBoxImage",
+            "label": "T:System.Windows.MessageBoxImage",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "edd0a619-e773-4e84-a5b4-a099c27870f4",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "T:System.Windows.MessageBoxImage"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "T:System.Windows.MessageBoxImage",
+            "label": "T:System.Windows.MessageBoxImage",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8d40dd8b-98dd-4062-b72d-bceaca3cb027",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "F:System.Windows.MessageBoxImage.Warning"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "F:System.Windows.MessageBoxImage.Warning",
+            "label": "F:System.Windows.MessageBoxImage.Warning",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7b962aec-bfc8-465d-8049-97acb6cab7aa",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "T:System.Windows.MessageBoxButton"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "T:System.Windows.MessageBoxButton",
+            "label": "T:System.Windows.MessageBoxButton",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "333586b6-def7-4af2-92f5-1af738ecb4e3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "T:System.Windows.MessageBoxButton"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "T:System.Windows.MessageBoxButton",
+            "label": "T:System.Windows.MessageBoxButton",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "16bd6b78-3ce3-4d69-b8d6-42af2768024f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "F:System.Windows.MessageBoxButton.YesNo"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "F:System.Windows.MessageBoxButton.YesNo",
+            "label": "F:System.Windows.MessageBoxButton.YesNo",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7f265fce-8272-464e-99ed-2cd68d26830d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "0fc9a52d-60f4-417e-b289-b6cd46356f35",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e69e8913-94eb-4c65-a321-018545c05eb5",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBoxResult result = MessageBox.Show(\r\n                $\u0022Are you sure you want to delete {SelectedCharacter.Name}?\u0022,\r\n                \u0022Delete Character\u0022,\r\n                MessageBoxButton.YesNo,\r\n                MessageBoxImage.Warning);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)",
+            "label": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)",
+            "line": 110,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d7741fd0-7844-4aef-aafe-79e44846ffe0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxImage"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxImage",
+            "label": "T:System.Windows.MessageBoxImage",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "d2fb6788-418b-42e1-b218-e36f8dcd54eb",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxImage"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxImage",
+            "label": "T:System.Windows.MessageBoxImage",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "5a38086e-fc6d-4259-a205-79560d300b5b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "F:System.Windows.MessageBoxImage.Information"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "F:System.Windows.MessageBoxImage.Information",
+            "label": "F:System.Windows.MessageBoxImage.Information",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "f9390dea-ce95-4ecf-9c79-05a3a5791722",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxButton"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxButton",
+            "label": "T:System.Windows.MessageBoxButton",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "7cd5c5a4-ddde-4cc0-8a08-430b0654ba26",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxButton"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxButton",
+            "label": "T:System.Windows.MessageBoxButton",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "a4547d8b-2d1b-490b-8fdd-dbdedf0caaa0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "F:System.Windows.MessageBoxButton.OK"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "F:System.Windows.MessageBoxButton.OK",
+            "label": "F:System.Windows.MessageBoxButton.OK",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "a6ae4c4c-e8c8-4f91-b507-14b797aba041",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "cff7500d-cf2a-403f-ab89-a977c4784a33",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "5ab825e0-9a71-4ab0-8f74-019e4fed8f45",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to delete.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)",
+            "label": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)",
+            "line": 101,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "60356f0f-f231-4da5-8e9d-1f97a4341cee",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "private void EditCharacter_Click(\r\n            object sender,\r\n            RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "private void EditCharacter_Click(\r\n            object sender,\r\n            RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 73,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "72e6e6cc-cd43-41a7-9c1c-1e70cecb340b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+              "protected": "T:System.Windows.Navigation.NavigationService"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+            "protectedSnippet": "T:System.Windows.Navigation.NavigationService",
+            "label": "T:System.Windows.Navigation.NavigationService",
+            "line": 88,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "2b449d26-c47f-419a-b1de-5d9e3aa338e9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+              "protected": "P:System.Windows.Controls.Page.NavigationService"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+            "protectedSnippet": "P:System.Windows.Controls.Page.NavigationService",
+            "label": "P:System.Windows.Controls.Page.NavigationService",
+            "line": 88,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "75c7134a-4f34-47a4-95e8-c3487da4e0b3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+              "protected": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    SelectedCharacter));",
+            "protectedSnippet": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)",
+            "label": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)",
+            "line": 88,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a8a4ae31-806e-415b-913f-4bda05da2285",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxImage"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxImage",
+            "label": "T:System.Windows.MessageBoxImage",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "fcedf723-18d1-4b63-a409-5d47bce0d019",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxImage"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxImage",
+            "label": "T:System.Windows.MessageBoxImage",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "b17697c1-bdc5-4799-8c25-4221a7830ab7",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "F:System.Windows.MessageBoxImage.Information"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "F:System.Windows.MessageBoxImage.Information",
+            "label": "F:System.Windows.MessageBoxImage.Information",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "f2a4db91-67c7-4548-a4de-0d95e5823bf5",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxButton"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxButton",
+            "label": "T:System.Windows.MessageBoxButton",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "cb891d9e-8da3-4e46-9afd-017038b99ae2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxButton"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxButton",
+            "label": "T:System.Windows.MessageBoxButton",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "7a2d87cd-cdbc-44f1-9b58-57ae793d2a61",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "F:System.Windows.MessageBoxButton.OK"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "F:System.Windows.MessageBoxButton.OK",
+            "label": "F:System.Windows.MessageBoxButton.OK",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "a4ed256e-875d-4081-8511-6c26b6c78d41",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "847b6fa3-4285-40e8-98bf-b81ddc14a5ac",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "cd563463-9860-4f71-9623-c10bd026bc78",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "MessageBox.Show(\r\n                    \u0022Please select a character to edit.\u0022,\r\n                    \u0022No Character Selected\u0022,\r\n                    MessageBoxButton.OK,\r\n                    MessageBoxImage.Information);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)",
+            "label": "M:System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)",
+            "line": 79,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "1109faba-92fb-46b3-b26b-652e1fc40004",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "private void CreateCharacter_Click(\r\n            object sender,\r\n            RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "private void CreateCharacter_Click(\r\n            object sender,\r\n            RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 62,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "b7c6b61b-29f0-45f5-8904-dc24e6aa73d4",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    null));",
+              "protected": "T:System.Windows.Navigation.NavigationService"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    null));",
+            "protectedSnippet": "T:System.Windows.Navigation.NavigationService",
+            "label": "T:System.Windows.Navigation.NavigationService",
+            "line": 66,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c96f125f-ed88-4f13-b408-0decc9d59ffa",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    null));",
+              "protected": "P:System.Windows.Controls.Page.NavigationService"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    null));",
+            "protectedSnippet": "P:System.Windows.Controls.Page.NavigationService",
+            "label": "P:System.Windows.Controls.Page.NavigationService",
+            "line": 66,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "bb9688fe-0c18-4aaa-bfa8-1236eb884cce",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    null));",
+              "protected": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "NavigationService.Navigate(\r\n                new CharacterEditorPage(\r\n                    Characters,\r\n                    null));",
+            "protectedSnippet": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)",
+            "label": "M:System.Windows.Navigation.NavigationService.Navigate(System.Object)",
+            "line": 66,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "bb58ebfa-2e50-4cd2-b5f5-1272d102e3c4",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "DataContext = this;",
+              "protected": "P:System.Windows.FrameworkElement.DataContext"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "DataContext = this;",
+            "protectedSnippet": "P:System.Windows.FrameworkElement.DataContext",
+            "label": "P:System.Windows.FrameworkElement.DataContext",
+            "line": 23,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "0f3b9c0b-b93f-4fe2-9d13-cc6914b30da3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public CharactersPage()\r\n        {\r\n            InitializeComponent();\r\n\r\n            Characters = new ObservableCollection\u003CCharacter\u003E();\r\n\r\n            DataContext = this;\r\n\r\n            LoadCharacters();\r\n        }",
+              "protected": "M:System.Windows.Controls.Page.#ctor"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "public CharactersPage()\r\n        {\r\n            InitializeComponent();\r\n\r\n            Characters = new ObservableCollection\u003CCharacter\u003E();\r\n\r\n            DataContext = this;\r\n\r\n            LoadCharacters();\r\n        }",
+            "protectedSnippet": "M:System.Windows.Controls.Page.#ctor",
+            "label": "M:System.Windows.Controls.Page.#ctor",
+            "line": 17,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "5dada599-2541-40c6-84f7-3e2599a47619",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "DataContext = this;",
+              "protected": "P:System.Windows.FrameworkElement.DataContext"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "DataContext = this;",
+            "protectedSnippet": "P:System.Windows.FrameworkElement.DataContext",
+            "label": "P:System.Windows.FrameworkElement.DataContext",
+            "line": 23,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1ca89d90-368e-4439-82cf-897550d45973",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public CharactersPage()\r\n        {\r\n            InitializeComponent();\r\n\r\n            Characters = new ObservableCollection\u003CCharacter\u003E();\r\n\r\n            DataContext = this;\r\n\r\n            LoadCharacters();\r\n        }",
+              "protected": "M:System.Windows.Controls.Page.#ctor"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "public CharactersPage()\r\n        {\r\n            InitializeComponent();\r\n\r\n            Characters = new ObservableCollection\u003CCharacter\u003E();\r\n\r\n            DataContext = this;\r\n\r\n            LoadCharacters();\r\n        }",
+            "protectedSnippet": "M:System.Windows.Controls.Page.#ctor",
+            "label": "M:System.Windows.Controls.Page.#ctor",
+            "line": 17,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "9e36da20-f23a-4959-b205-e9ecdfbac08a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "IComponentConnector",
+              "protected": "T:System.Windows.Markup.IComponentConnector"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharactersPage.g.i.cs",
+            "snippet": "IComponentConnector",
+            "protectedSnippet": "T:System.Windows.Markup.IComponentConnector",
+            "label": "T:System.Windows.Markup.IComponentConnector",
+            "line": 40,
+            "column": 94
+          }
+        },
+        {
+          "incidentId": "0f4d6126-7043-4de7-b71f-ad816cf1a881",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Page",
+              "protected": "T:System.Windows.Controls.Page"
+            },
+            "kind": "File",
+            "path": "CharactersPage.xaml.cs",
+            "snippet": "Page",
+            "protectedSnippet": "T:System.Windows.Controls.Page",
+            "label": "T:System.Windows.Controls.Page",
+            "line": 11,
+            "column": 42
+          }
+        },
+        {
+          "incidentId": "78502ec4-7ebd-4bf7-9288-6c9f0a5214ea",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+              "protected": "T:System.Windows.Application"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharacterEditorPage.g.i.cs",
+            "snippet": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+            "protectedSnippet": "T:System.Windows.Application",
+            "label": "T:System.Windows.Application",
+            "line": 57,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "66b444b9-a26e-4444-9197-cac49d180fed",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+              "protected": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharacterEditorPage.g.i.cs",
+            "snippet": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+            "protectedSnippet": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)",
+            "label": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)",
+            "line": 57,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b79cf2c2-39bb-4c99-9e43-c06dd8653b98",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/charactereditorpage.xaml\u0022, System.UriKind.Relative);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharacterEditorPage.g.i.cs",
+            "snippet": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/charactereditorpage.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 54,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "51ebf6b9-9a7f-4b02-8304-299cdd408094",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/charactereditorpage.xaml\u0022, System.UriKind.Relative);",
+              "protected": "M:System.Uri.#ctor(System.String,System.UriKind)"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharacterEditorPage.g.i.cs",
+            "snippet": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/charactereditorpage.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "M:System.Uri.#ctor(System.String,System.UriKind)",
+            "label": "M:System.Uri.#ctor(System.String,System.UriKind)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 54,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "97120acb-30d7-45db-b996-32b95b1814bf",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public CharacterEditorPage(Character? character = null)\r\n        {\r\n            InitializeComponent();\r\n\r\n            _character = character ?? new Character();\r\n\r\n            // Populate UI from _character\r\n        }",
+              "protected": "M:System.Windows.Controls.Page.#ctor"
+            },
+            "kind": "File",
+            "path": "CharacterEditorPage.xaml.cs",
+            "snippet": "public CharacterEditorPage(Character? character = null)\r\n        {\r\n            InitializeComponent();\r\n\r\n            _character = character ?? new Character();\r\n\r\n            // Populate UI from _character\r\n        }",
+            "protectedSnippet": "M:System.Windows.Controls.Page.#ctor",
+            "label": "M:System.Windows.Controls.Page.#ctor",
+            "line": 25,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "560a61eb-49fe-4686-9b8d-411631711993",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public CharacterEditorPage(Character? character = null)\r\n        {\r\n            InitializeComponent();\r\n\r\n            _character = character ?? new Character();\r\n\r\n            // Populate UI from _character\r\n        }",
+              "protected": "M:System.Windows.Controls.Page.#ctor"
+            },
+            "kind": "File",
+            "path": "CharacterEditorPage.xaml.cs",
+            "snippet": "public CharacterEditorPage(Character? character = null)\r\n        {\r\n            InitializeComponent();\r\n\r\n            _character = character ?? new Character();\r\n\r\n            // Populate UI from _character\r\n        }",
+            "protectedSnippet": "M:System.Windows.Controls.Page.#ctor",
+            "label": "M:System.Windows.Controls.Page.#ctor",
+            "line": 25,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "d1341fa2-89ae-464e-a3f4-c5b508197a49",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "IComponentConnector",
+              "protected": "T:System.Windows.Markup.IComponentConnector"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\CharacterEditorPage.g.i.cs",
+            "snippet": "IComponentConnector",
+            "protectedSnippet": "T:System.Windows.Markup.IComponentConnector",
+            "label": "T:System.Windows.Markup.IComponentConnector",
+            "line": 40,
+            "column": 99
+          }
+        },
+        {
+          "incidentId": "5d12760b-cb83-429f-8691-9962ac3eacf2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Page",
+              "protected": "T:System.Windows.Controls.Page"
+            },
+            "kind": "File",
+            "path": "CharacterEditorPage.xaml.cs",
+            "snippet": "Page",
+            "protectedSnippet": "T:System.Windows.Controls.Page",
+            "label": "T:System.Windows.Controls.Page",
+            "line": 21,
+            "column": 47
+          }
+        },
+        {
+          "incidentId": "9f12351f-6797-4a51-9d44-bf69e295c855",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "app.Run();",
+              "protected": "M:System.Windows.Application.Run"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\App.g.i.cs",
+            "snippet": "app.Run();",
+            "protectedSnippet": "M:System.Windows.Application.Run",
+            "label": "M:System.Windows.Application.Run",
+            "line": 65,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b3ec84d2-e07d-4428-9b90-40b6d16c0414",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.StartupUri = new System.Uri(\u0022MainWindow.xaml\u0022, System.UriKind.Relative);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\App.g.i.cs",
+            "snippet": "this.StartupUri = new System.Uri(\u0022MainWindow.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 50,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "20744da2-d3c3-4824-9b63-c5d7c8cbf1f1",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.StartupUri = new System.Uri(\u0022MainWindow.xaml\u0022, System.UriKind.Relative);",
+              "protected": "M:System.Uri.#ctor(System.String,System.UriKind)"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\App.g.i.cs",
+            "snippet": "this.StartupUri = new System.Uri(\u0022MainWindow.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "M:System.Uri.#ctor(System.String,System.UriKind)",
+            "label": "M:System.Uri.#ctor(System.String,System.UriKind)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 50,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3e647fce-79ea-4d6f-a19f-3c428d39763e",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.StartupUri = new System.Uri(\u0022MainWindow.xaml\u0022, System.UriKind.Relative);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\App.g.i.cs",
+            "snippet": "this.StartupUri = new System.Uri(\u0022MainWindow.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 50,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "096837e0-a9a3-48b8-93f9-1a217dd39203",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.StartupUri = new System.Uri(\u0022MainWindow.xaml\u0022, System.UriKind.Relative);",
+              "protected": "P:System.Windows.Application.StartupUri"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\App.g.i.cs",
+            "snippet": "this.StartupUri = new System.Uri(\u0022MainWindow.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "P:System.Windows.Application.StartupUri",
+            "label": "P:System.Windows.Application.StartupUri",
+            "line": 50,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d8dba4e8-cf79-4941-b9ac-6eba6823e6d0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Application",
+              "protected": "M:System.Windows.Application.#ctor"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\App.g.i.cs",
+            "snippet": "Application",
+            "protectedSnippet": "M:System.Windows.Application.#ctor",
+            "label": "M:System.Windows.Application.#ctor",
+            "line": 40,
+            "column": 46
+          }
+        },
+        {
+          "incidentId": "f9f81722-d482-4639-a219-8f42f80a9607",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Application",
+              "protected": "T:System.Windows.Application"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\App.g.i.cs",
+            "snippet": "Application",
+            "protectedSnippet": "T:System.Windows.Application",
+            "label": "T:System.Windows.Application",
+            "line": 40,
+            "column": 46
+          }
+        },
+        {
+          "incidentId": "4ccb9609-51b7-4734-be8a-9751fe3fe65f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "private void CharactersButton_Click(object sender, RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "private void CharactersButton_Click(object sender, RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 58,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "bcc0d5be-10c1-4db8-8099-dbac0f993a5d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MainFrame.Navigate(new CharactersPage());",
+              "protected": "T:System.Windows.Controls.Frame"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MainFrame.Navigate(new CharactersPage());",
+            "protectedSnippet": "T:System.Windows.Controls.Frame",
+            "label": "T:System.Windows.Controls.Frame",
+            "line": 60,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "06860631-6ea1-4c24-8954-3402016eccd8",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MainFrame.Navigate(new CharactersPage());",
+              "protected": "M:System.Windows.Controls.Frame.Navigate(System.Object)"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MainFrame.Navigate(new CharactersPage());",
+            "protectedSnippet": "M:System.Windows.Controls.Frame.Navigate(System.Object)",
+            "label": "M:System.Windows.Controls.Frame.Navigate(System.Object)",
+            "line": 60,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b5419742-a3c8-48cd-b95d-d13b9327afb2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": " void SelectQuestsClick(object sender, RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": " void SelectQuestsClick(object sender, RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 53,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "2330d300-08ed-468f-84b4-1cc77e0e9f7d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectQuestsClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectQuestsClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 55,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f9e26182-4e64-468c-86d0-1ba5ea793b32",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectQuestsClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectQuestsClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 55,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e91b2562-0632-4b13-9dc0-da40e3a20650",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectQuestsClick clicked!\u0022);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectQuestsClick clicked!\u0022);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.MessageBox.Show(System.String)",
+            "line": 55,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f9bf67e1-7d90-4c87-9601-8c1e78fd6d0e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": " void SelectGeneralNotesClick(object sender, RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": " void SelectGeneralNotesClick(object sender, RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 48,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "8c9c2406-9052-4063-93f6-1e9734d08e32",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectGeneralNotesClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectGeneralNotesClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 50,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8354243d-40a6-435d-b1d4-62eab986c50c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectGeneralNotesClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectGeneralNotesClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 50,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8d4cc5fe-669f-4046-a91e-b9afe9ba9e6e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectGeneralNotesClick clicked!\u0022);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectGeneralNotesClick clicked!\u0022);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.MessageBox.Show(System.String)",
+            "line": 50,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "4104f146-eaea-4890-bd7c-0f5dc07d2c7e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": " void SelectLocationsClick(object sender, RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": " void SelectLocationsClick(object sender, RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 43,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "7aca3332-78d7-4d9d-8858-70fc2ffab2e9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectLocationsClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectLocationsClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 45,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f20b0774-b991-45df-b37a-1bcc3de8a477",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectLocationsClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectLocationsClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 45,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "2b33a497-ee3c-43fa-b648-50727b278e62",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectLocationsClick clicked!\u0022);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectLocationsClick clicked!\u0022);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.MessageBox.Show(System.String)",
+            "line": 45,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "11796fe9-8561-441e-ba62-99745a7660f6",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": " void SelectBattleMapClick(object sender, RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": " void SelectBattleMapClick(object sender, RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 38,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "5949a711-b266-4cd8-b796-196fc1052b3a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectBattleMapClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectBattleMapClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 40,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8c1235cd-131d-445a-9e1c-e2e2d0185bd9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectBattleMapClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectBattleMapClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 40,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "6f8362e1-7a7d-4892-a206-d0f8bcf9c99d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectBattleMapClick clicked!\u0022);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectBattleMapClick clicked!\u0022);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.MessageBox.Show(System.String)",
+            "line": 40,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "15cb2d39-1a4a-4d44-b757-582863ec3595",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": " void SelectCharactersClick(object sender, RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": " void SelectCharactersClick(object sender, RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 32,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ef4a1cdc-af00-46c6-adce-86cf5e72502d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MainFrame.Navigate(new CharactersPage());",
+              "protected": "T:System.Windows.Controls.Frame"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MainFrame.Navigate(new CharactersPage());",
+            "protectedSnippet": "T:System.Windows.Controls.Frame",
+            "label": "T:System.Windows.Controls.Frame",
+            "line": 35,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "bd4fa249-ec67-4d06-a773-93ddb2aa1e7e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MainFrame.Navigate(new CharactersPage());",
+              "protected": "M:System.Windows.Controls.Frame.Navigate(System.Object)"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MainFrame.Navigate(new CharactersPage());",
+            "protectedSnippet": "M:System.Windows.Controls.Frame.Navigate(System.Object)",
+            "label": "M:System.Windows.Controls.Frame.Navigate(System.Object)",
+            "line": 35,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c28390ed-dae0-4dd1-b443-855c16f25219",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectCharactersClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectCharactersClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 34,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "00704f1e-c0d3-450c-9354-9a6bfbf58ad7",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectCharactersClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectCharactersClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 34,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "6aaaf0e4-6314-4225-83cc-1f0479572d3c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectCharactersClick clicked!\u0022);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectCharactersClick clicked!\u0022);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.MessageBox.Show(System.String)",
+            "line": 34,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b8557b72-4215-4747-880e-da9b8327bebf",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": " void SelectCampaignsClick(object sender, RoutedEventArgs e)",
+              "protected": "T:System.Windows.RoutedEventArgs"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": " void SelectCampaignsClick(object sender, RoutedEventArgs e)",
+            "protectedSnippet": "T:System.Windows.RoutedEventArgs",
+            "label": "T:System.Windows.RoutedEventArgs",
+            "line": 27,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "f5c6a047-530b-4630-a1e1-ab068e176da4",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectCampaignsClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBox"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectCampaignsClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBox",
+            "label": "T:System.Windows.MessageBox",
+            "line": 29,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "dd81a20e-d09e-4492-9a2d-dcc7471fdce9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectCampaignsClick clicked!\u0022);",
+              "protected": "T:System.Windows.MessageBoxResult"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectCampaignsClick clicked!\u0022);",
+            "protectedSnippet": "T:System.Windows.MessageBoxResult",
+            "label": "T:System.Windows.MessageBoxResult",
+            "line": 29,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a459edd3-9ea1-4d2b-b626-bb3896b214f1",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022SelectCampaignsClick clicked!\u0022);",
+              "protected": "M:System.Windows.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "MessageBox.Show(\u0022SelectCampaignsClick clicked!\u0022);",
+            "protectedSnippet": "M:System.Windows.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.MessageBox.Show(System.String)",
+            "line": 29,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "5662c348-e22c-4fc5-91b1-6476acd6060b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public MainWindow()\r\n        {\r\n            InitializeComponent();\r\n        }",
+              "protected": "M:System.Windows.Window.#ctor"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "public MainWindow()\r\n        {\r\n            InitializeComponent();\r\n        }",
+            "protectedSnippet": "M:System.Windows.Window.#ctor",
+            "label": "M:System.Windows.Window.#ctor",
+            "line": 22,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "e5f92db7-ea02-435a-a081-0fc4d5134d4c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.MainFrame = ((System.Windows.Controls.Frame)(target));",
+              "protected": "T:System.Windows.Controls.Frame"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "this.MainFrame = ((System.Windows.Controls.Frame)(target));",
+            "protectedSnippet": "T:System.Windows.Controls.Frame",
+            "label": "T:System.Windows.Controls.Frame",
+            "line": 121,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1431e1bc-0250-454d-bdb0-4407d1343f01",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectGeneralNotesClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectGeneralNotesClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 115,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7b111cd7-bd44-4b65-a1e1-13a2e34560ad",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectGeneralNotesClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectGeneralNotesClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 115,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3c0179d3-af2e-4bfb-b5ab-9667ca141289",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectGeneralNotesClick);",
+              "protected": "E:System.Windows.Controls.Primitives.ButtonBase.Click"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectGeneralNotesClick);",
+            "protectedSnippet": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "label": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "line": 115,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "453bd652-5fa6-45bc-bb9b-6676f953ebc9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectQuestsClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectQuestsClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 107,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3e7e7a01-3e36-4857-a99a-6300f3f42e66",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectQuestsClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectQuestsClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 107,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "11e29f6e-2d3a-4c78-acc7-1e2ab7cdf354",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectQuestsClick);",
+              "protected": "E:System.Windows.Controls.Primitives.ButtonBase.Click"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectQuestsClick);",
+            "protectedSnippet": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "label": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "line": 107,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "de87bbe8-5145-4ecb-b63f-33f4006f6e8e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectLocationsClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectLocationsClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 99,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c49e0b89-f142-49ee-9355-73c456287eb6",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectLocationsClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectLocationsClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 99,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3e7fc520-9c0f-44ab-9ec5-667e00e793a3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectLocationsClick);",
+              "protected": "E:System.Windows.Controls.Primitives.ButtonBase.Click"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectLocationsClick);",
+            "protectedSnippet": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "label": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "line": 99,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "938559a3-e484-4626-844a-14c19ea89f81",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCharactersClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCharactersClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "40af6e6e-14be-4dd1-aa22-0444d8429bab",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCharactersClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCharactersClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "bc6312c4-3e67-4728-b2a6-e5327c64a787",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCharactersClick);",
+              "protected": "E:System.Windows.Controls.Primitives.ButtonBase.Click"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCharactersClick);",
+            "protectedSnippet": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "label": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "80c5dcf4-2862-4b44-8c7e-8777b0659000",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCampaignsClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCampaignsClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 83,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f00eaa22-7fe3-4a3c-829b-79610ad9e90c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCampaignsClick);",
+              "protected": "T:System.Windows.RoutedEventHandler"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCampaignsClick);",
+            "protectedSnippet": "T:System.Windows.RoutedEventHandler",
+            "label": "T:System.Windows.RoutedEventHandler",
+            "line": 83,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8290330e-8932-466f-9e6c-3dda664945ac",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCampaignsClick);",
+              "protected": "E:System.Windows.Controls.Primitives.ButtonBase.Click"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "((System.Windows.Controls.Button)(target)).Click \u002B= new System.Windows.RoutedEventHandler(this.SelectCampaignsClick);",
+            "protectedSnippet": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "label": "E:System.Windows.Controls.Primitives.ButtonBase.Click",
+            "line": 83,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d7b5ea29-3f2c-4396-881b-3e6930fce68f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+              "protected": "T:System.Windows.Application"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+            "protectedSnippet": "T:System.Windows.Application",
+            "label": "T:System.Windows.Application",
+            "line": 65,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "5bf4d3a1-d955-4606-af9d-5e38c798efb2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+              "protected": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "System.Windows.Application.LoadComponent(this, resourceLocater);",
+            "protectedSnippet": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)",
+            "label": "M:System.Windows.Application.LoadComponent(System.Object,System.Uri)",
+            "line": 65,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a5f6fc5e-2e48-4508-94c4-84288f23e68e",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/mainwindow.xaml\u0022, System.UriKind.Relative);",
+              "protected": "T:System.Uri"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/mainwindow.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "T:System.Uri",
+            "label": "T:System.Uri",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 62,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f3760a0c-8fc9-4244-8d20-e817f44bd98a",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: URI length limits removed ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/mainwindow.xaml\u0022, System.UriKind.Relative);",
+              "protected": "M:System.Uri.#ctor(System.String,System.UriKind)"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "System.Uri resourceLocater = new System.Uri(\u0022/DnDesktop;component/mainwindow.xaml\u0022, System.UriKind.Relative);",
+            "protectedSnippet": "M:System.Uri.#ctor(System.String,System.UriKind)",
+            "label": "M:System.Uri.#ctor(System.String,System.UriKind)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/networking/10.0/uri-length-limits-removed.md",
+                "isCustom": false
+              }
+            ],
+            "line": 62,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c3ffc6ca-0d44-499c-a6c7-76d239d5d9bd",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MainFrame",
+              "protected": "T:System.Windows.Controls.Frame"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "MainFrame",
+            "protectedSnippet": "T:System.Windows.Controls.Frame",
+            "label": "T:System.Windows.Controls.Frame",
+            "line": 45,
+            "column": 47
+          }
+        },
+        {
+          "incidentId": "3c58b0ce-6534-4029-bda4-37a83bf49afe",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public MainWindow()\r\n        {\r\n            InitializeComponent();\r\n        }",
+              "protected": "M:System.Windows.Window.#ctor"
+            },
+            "kind": "File",
+            "path": "MainWindow.xaml.cs",
+            "snippet": "public MainWindow()\r\n        {\r\n            InitializeComponent();\r\n        }",
+            "protectedSnippet": "M:System.Windows.Window.#ctor",
+            "label": "M:System.Windows.Window.#ctor",
+            "line": 22,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "747f634a-552c-4e45-bd8b-5ea01360ba08",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "IComponentConnector",
+              "protected": "T:System.Windows.Markup.IComponentConnector"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "IComponentConnector",
+            "protectedSnippet": "T:System.Windows.Markup.IComponentConnector",
+            "label": "T:System.Windows.Markup.IComponentConnector",
+            "line": 40,
+            "column": 83
+          }
+        },
+        {
+          "incidentId": "60f3993d-e9a8-453b-b4ea-817d426fdd10",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "DnDesktop.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Window",
+              "protected": "T:System.Windows.Window"
+            },
+            "kind": "File",
+            "path": "obj\\Debug\\MainWindow.g.i.cs",
+            "snippet": "Window",
+            "protectedSnippet": "T:System.Windows.Window",
+            "label": "T:System.Windows.Window",
+            "line": 40,
+            "column": 53
+          }
+        }
+      ],
+      "features": [
+        {
+          "featureId": "LegacyConfiguration",
+          "incidents": [
+            "9c413dd6-8908-4a1a-8bb0-bd3081bfb914",
+            "114a2409-ff58-433e-9c9b-832777ac384b"
+          ]
+        },
+        {
+          "featureId": "Wpf",
+          "incidents": [
+            "747f634a-552c-4e45-bd8b-5ea01360ba08",
+            "c3ffc6ca-0d44-499c-a6c7-76d239d5d9bd",
+            "8290330e-8932-466f-9e6c-3dda664945ac",
+            "bc6312c4-3e67-4728-b2a6-e5327c64a787",
+            "3e7fc520-9c0f-44ab-9ec5-667e00e793a3",
+            "11e29f6e-2d3a-4c78-acc7-1e2ab7cdf354",
+            "3c0179d3-af2e-4bfb-b5ab-9667ca141289",
+            "e5f92db7-ea02-435a-a081-0fc4d5134d4c",
+            "bd4fa249-ec67-4d06-a773-93ddb2aa1e7e",
+            "ef4a1cdc-af00-46c6-adce-86cf5e72502d",
+            "06860631-6ea1-4c24-8954-3402016eccd8",
+            "bcc0d5be-10c1-4db8-8099-dbac0f993a5d",
+            "5d12760b-cb83-429f-8691-9962ac3eacf2",
+            "d1341fa2-89ae-464e-a3f4-c5b508197a49",
+            "560a61eb-49fe-4686-9b8d-411631711993",
+            "97120acb-30d7-45db-b996-32b95b1814bf",
+            "0f4d6126-7043-4de7-b71f-ad816cf1a881",
+            "9e36da20-f23a-4959-b205-e9ecdfbac08a",
+            "1ca89d90-368e-4439-82cf-897550d45973",
+            "0f3b9c0b-b93f-4fe2-9d13-cc6914b30da3",
+            "bb9688fe-0c18-4aaa-bfa8-1236eb884cce",
+            "c96f125f-ed88-4f13-b408-0decc9d59ffa",
+            "b7c6b61b-29f0-45f5-8904-dc24e6aa73d4",
+            "75c7134a-4f34-47a4-95e8-c3487da4e0b3",
+            "2b449d26-c47f-419a-b1de-5d9e3aa338e9",
+            "72e6e6cc-cd43-41a7-9c1c-1e70cecb340b",
+            "aa8c684c-0ca0-4f2c-8edd-029672e21b1e",
+            "1f7dcdd5-6057-4783-b1e1-613f6a1171b0",
+            "4b5f32ce-c8c1-4338-a2bd-2bfd403f165f",
+            "956005a7-57cb-418f-a61c-06efa810e77e",
+            "89c0e77f-7821-4d59-9b87-99127112b0b1",
+            "9f7398fc-ccc6-4c72-b961-73703694d672",
+            "79ef001b-839d-4d03-b64f-41ff0f6db3d8",
+            "a5fd5128-94ae-4339-b6c7-a65ae2e46e1b",
+            "dacbe8b5-9f60-4780-a5f3-6a9627ee101a",
+            "b6995afb-da0c-4776-8e42-05435d1c374d",
+            "3a34d0cc-d7ca-42af-bcd5-9fa22831f5d9",
+            "678955b5-2341-4a65-a9b9-33d3e65e3965",
+            "018dddc2-1d5c-45ff-992c-291676f4bec1"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "Project.0001": {
+      "id": "Project.0001",
+      "isFeature": false,
+      "description": "Project file needs to be converted to SDK-style. Modern .NET framework projects require a change in the project file format and use SDK corresponding to project flavor and functionality.",
+      "label": "Project file needs to be converted to SDK-style",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "isFeature": false,
+      "description": "API is source incompatible for selected .NET version: requires code changes to compile successfully when targeting a new version, such as removing obsolete APIs or changing method signatures.",
+      "label": "Source incompatible for selected .NET version",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0001": {
+      "id": "Api.0001",
+      "isFeature": false,
+      "description": "API is binary incompatible for selected .NET version: affects existing binaries, often requiring recompilation, because the API has changed in a way that prevents older binaries from loading or executing.",
+      "label": "Binary incompatible for selected .NET version",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0003": {
+      "id": "Api.0003",
+      "isFeature": false,
+      "description": "API has a behavioral change in selected .NET version: code and binaries may behave differently at runtime without needing recompilation, but the new behavior might be undesirable and require updates.",
+      "label": "Behavioral change in selected .NET version",
+      "severity": "Potential",
+      "effort": 1
+    },
+    "LegacyConfiguration": {
+      "id": "LegacyConfiguration",
+      "isFeature": false,
+      "description": "Legacy XML-based configuration system (app.config/web.config) that has been replaced by a more flexible configuration model in .NET Core. The old system was rigid and XML-based. Migrate to Microsoft.Extensions.Configuration with JSON/environment variables; use System.Configuration.ConfigurationManager NuGet package as interim bridge if needed.",
+      "label": "Legacy Configuration System",
+      "severity": "Mandatory",
+      "effort": 2,
+      "links": [
+        {
+          "title": "Configuration in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2341702",
+          "isCustom": false
+        }
+      ]
+    },
+    "Wpf": {
+      "id": "Wpf",
+      "isFeature": false,
+      "description": "WPF APIs for building Windows desktop applications with XAML-based UI that are available in .NET on Windows. WPF provides rich desktop UI capabilities with data binding and styling. Enable Windows Desktop support: Option 1 (Recommended): Target net9.0-windows; Option 2: Add \u003CUseWindowsDesktop\u003Etrue\u003C/UseWindowsDesktop\u003E.",
+      "label": "WPF (Windows Presentation Foundation)",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "WPF on .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2342008",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}
