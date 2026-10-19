@@ -1,20 +1,19 @@
 ﻿<Page x:Class="DnDesktop.CharacterEditorPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DnDesktop"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      d:DesignHeight="1000"
+      d:DesignWidth="850"
       Title="CharacterEditorPage">
 
-
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-
-        <Grid Margin="30">
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+        <Grid Margin="30" MaxWidth="900"
+              HorizontalAlignment="Left">
 
             <Grid.RowDefinitions>
-
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -23,11 +22,10 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-
-            <!-- Header -->
 
             <TextBlock x:Name="PageTitle"
                        Grid.Row="0"
@@ -36,173 +34,219 @@
                        FontWeight="Bold"
                        Margin="0,0,0,25"/>
 
-
-            <!-- Name -->
-
-            <StackPanel Grid.Row="1"
-                        Margin="0,0,0,15">
-
-                <TextBlock Text="Character Name"
-                           FontWeight="Bold"/>
-
-                <TextBox x:Name="NameTextBox"
-                         Height="30"
-                         Margin="0,5,0,0"/>
-
+            <StackPanel Grid.Row="1" Margin="0,0,0,15">
+                <TextBlock Text="Character Name" FontWeight="Bold"/>
+                <TextBox x:Name="NameTextBox" Height="30" Margin="0,5,0,0"/>
             </StackPanel>
 
-
-            <!-- Player -->
-
-            <StackPanel Grid.Row="2"
-                        Margin="0,0,0,15">
-
-                <TextBlock Text="Player Name"
-                           FontWeight="Bold"/>
-
-                <TextBox x:Name="PlayerNameTextBox"
-                         Height="30"
-                         Margin="0,5,0,0"/>
-
+            <StackPanel Grid.Row="2" Margin="0,0,0,15">
+                <TextBlock Text="Player Name" FontWeight="Bold"/>
+                <TextBox x:Name="PlayerNameTextBox" Height="30" Margin="0,5,0,0"/>
             </StackPanel>
 
-
-            <!-- Race / Class -->
-
-            <Grid Grid.Row="3"
-                  Margin="0,0,0,15">
-
+            <Grid Grid.Row="3" Margin="0,0,0,15">
                 <Grid.ColumnDefinitions>
-
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-
                 </Grid.ColumnDefinitions>
-
-
-                <StackPanel Grid.Column="0"
-                            Margin="0,0,10,0">
-
-                    <TextBlock Text="Race"
-                               FontWeight="Bold"/>
-
-                    <TextBox x:Name="RaceTextBox"
-                             Height="30"
-                             Margin="0,5,0,0"/>
-
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <TextBlock Text="Race" FontWeight="Bold"/>
+                    <TextBox x:Name="RaceTextBox" Height="30" Margin="0,5,0,0"/>
                 </StackPanel>
-
-
-                <StackPanel Grid.Column="1"
-                            Margin="10,0,0,0">
-
-                    <TextBlock Text="Class"
-                               FontWeight="Bold"/>
-
-                    <TextBox x:Name="ClassTextBox"
-                             Height="30"
-                             Margin="0,5,0,0"/>
-
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="Class" FontWeight="Bold"/>
+                    <TextBox x:Name="ClassTextBox" Height="30" Margin="0,5,0,0"/>
                 </StackPanel>
-
             </Grid>
 
-
-            <!-- Subrace / Subclass -->
-
-            <Grid Grid.Row="4"
-                  Margin="0,0,0,15">
-
+            <Grid Grid.Row="4" Margin="0,0,0,15">
                 <Grid.ColumnDefinitions>
-
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-
                 </Grid.ColumnDefinitions>
-
-
-                <StackPanel Grid.Column="0"
-                            Margin="0,0,10,0">
-
-                    <TextBlock Text="Subrace"
-                               FontWeight="Bold"/>
-
-                    <TextBox x:Name="SubraceTextBox"
-                             Height="30"
-                             Margin="0,5,0,0"/>
-
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <TextBlock Text="Subrace" FontWeight="Bold"/>
+                    <TextBox x:Name="SubraceTextBox" Height="30" Margin="0,5,0,0"/>
                 </StackPanel>
-
-
-                <StackPanel Grid.Column="1"
-                            Margin="10,0,0,0">
-
-                    <TextBlock Text="Subclass"
-                               FontWeight="Bold"/>
-
-                    <TextBox x:Name="SubclassTextBox"
-                             Height="30"
-                             Margin="0,5,0,0"/>
-
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="Subclass" FontWeight="Bold"/>
+                    <TextBox x:Name="SubclassTextBox" Height="30" Margin="0,5,0,0"/>
                 </StackPanel>
-
             </Grid>
 
-
-            <!-- Level -->
-
-            <StackPanel Grid.Row="5"
-                        Margin="0,0,0,15">
-
-                <TextBlock Text="Level"
-                           FontWeight="Bold"/>
-
+            <StackPanel Grid.Row="5" Margin="0,0,0,15">
+                <TextBlock Text="Level" FontWeight="Bold"/>
                 <TextBox x:Name="LevelTextBox"
-                         Height="30"
-                         Width="100"
-                         HorizontalAlignment="Left"
-                         Margin="0,5,0,0"/>
-
+                         Height="30" Width="100"
+                         HorizontalAlignment="Left" Margin="0,5,0,0"/>
             </StackPanel>
 
-
-            <!-- Background -->
-
-            <StackPanel Grid.Row="6"
-                        Margin="0,0,0,15">
-
-                <TextBlock Text="Background"
-                           FontWeight="Bold"/>
-
-                <TextBox x:Name="BackgroundTextBox"
-                         Height="30"
-                         Margin="0,5,0,0"/>
-
+            <StackPanel Grid.Row="6" Margin="0,0,0,20">
+                <TextBlock Text="Background" FontWeight="Bold"/>
+                <TextBox x:Name="BackgroundTextBox" Height="30" Margin="0,5,0,0"/>
             </StackPanel>
 
+            <GroupBox Grid.Row="7" Header="Combat Statistics"
+                      Padding="12" Margin="0,0,0,16">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-            <!-- Buttons -->
+                    <Label Grid.Row="0" Grid.Column="0" Content="Armor Class"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="ArmorClassTextBox"
+                             Grid.Row="0" Grid.Column="1" Margin="4" Padding="6"/>
 
-            <StackPanel Grid.Row="7"
+                    <Label Grid.Row="0" Grid.Column="2" Content="Hit Points"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="HitPointsTextBox"
+                             Grid.Row="0" Grid.Column="3" Margin="4" Padding="6"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="Initiative Modifier"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="InitiativeModifierTextBox"
+                             Grid.Row="1" Grid.Column="1" Margin="4" Padding="6"/>
+
+                    <Label Grid.Row="1" Grid.Column="2" Content="Proficiency Bonus"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="ProficiencyBonusTextBox"
+                             Grid.Row="1" Grid.Column="3" Margin="4" Padding="6"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="Challenge Rating"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="ChallengeRatingTextBox"
+                             Grid.Row="2" Grid.Column="1" Margin="4" Padding="6"/>
+
+                    <Label Grid.Row="2" Grid.Column="2" Content="Experience Points"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="ExperiencePointsTextBox"
+                             Grid.Row="2" Grid.Column="3" Margin="4" Padding="6"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Hit Dice"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="HitDiceTextBox"
+                             Grid.Row="3" Grid.Column="1" Margin="4" Padding="6"
+                             ToolTip="Enter the number of hit dice."/>
+
+                    <Label Grid.Row="3" Grid.Column="2" Content="Combat Notes"
+                           VerticalAlignment="Top"/>
+                    <TextBox x:Name="CombatNotesTextBox"
+                             Grid.Row="3" Grid.Column="3" Margin="4" Padding="6"
+                             MinHeight="55" AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="8" Header="Ability Scores"
+                      Padding="12" Margin="0,0,0,16">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="Strength (STR)"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="StrengthTextBox" Grid.Row="0" Grid.Column="1"
+                             Margin="4" Padding="6" Text="10"/>
+
+                    <Label Grid.Row="0" Grid.Column="2" Content="Dexterity (DEX)"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="DexterityTextBox" Grid.Row="0" Grid.Column="3"
+                             Margin="4" Padding="6" Text="10"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="Constitution (CON)"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="ConstitutionTextBox" Grid.Row="1" Grid.Column="1"
+                             Margin="4" Padding="6" Text="10"/>
+
+                    <Label Grid.Row="1" Grid.Column="2" Content="Intelligence (INT)"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="IntelligenceTextBox" Grid.Row="1" Grid.Column="3"
+                             Margin="4" Padding="6" Text="10"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="Wisdom (WIS)"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="WisdomTextBox" Grid.Row="2" Grid.Column="1"
+                             Margin="4" Padding="6" Text="10"/>
+
+                    <Label Grid.Row="2" Grid.Column="2" Content="Charisma (CHA)"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="CharismaTextBox" Grid.Row="2" Grid.Column="3"
+                             Margin="4" Padding="6" Text="10"/>
+                </Grid>
+            </GroupBox>
+
+            <!-- Feats -->
+            <GroupBox Grid.Row="9" Header="Feats"
+                      Padding="12" Margin="0,0,0,16">
+                <DockPanel LastChildFill="True">
+                    <StackPanel DockPanel.Dock="Bottom"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                Margin="0,10,0,0">
+                        <Button Content="Add Feat"
+                                Width="100" Height="32"
+                                Margin="0,0,8,0"
+                                Click="AddFeat_Click"/>
+                        <Button Content="Edit Feat"
+                                Width="100" Height="32"
+                                Margin="0,0,8,0"
+                                Click="EditFeat_Click"/>
+                        <Button Content="Delete Feat"
+                                Width="100" Height="32"
+                                Click="DeleteFeat_Click"/>
+                    </StackPanel>
+
+                    <ListBox x:Name="FeatsListBox"
+                             MinHeight="110"
+                             MaxHeight="220"
+                             SelectionMode="Single">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="4">
+                                    <TextBlock Text="{Binding Name}"
+                                               FontWeight="Bold"
+                                               FontSize="14"/>
+                                    <TextBlock Text="{Binding Description}"
+                                               TextWrapping="Wrap"
+                                               Opacity="0.8"
+                                               Margin="0,3,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </GroupBox>
+
+            <StackPanel Grid.Row="10"
                         Orientation="Horizontal"
                         HorizontalAlignment="Right"
-                        Margin="0,20,0,0">
-
-                <Button Content="Cancel"
-                        Width="100"
-                        Height="35"
-                        Margin="0,0,10,0"
-                        Click="Cancel_Click"/>
-
-                <Button Content="Save Character"
-                        Width="140"
-                        Height="35"
+                        Margin="0,4,0,0">
+                <Button Content="Cancel" Width="100" Height="35"
+                        Margin="0,0,10,0" Click="Cancel_Click"/>
+                <Button Content="Save Character" Width="140" Height="35"
                         Click="SaveCharacter_Click"/>
-
             </StackPanel>
 
         </Grid>
-
     </ScrollViewer>
-
 </Page>

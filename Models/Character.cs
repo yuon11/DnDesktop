@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DnDesktop.Models
 {
@@ -18,7 +15,7 @@ namespace DnDesktop.Models
         public string Subrace { get; set; } = "";
         public string CharacterClass { get; set; } = "";
         public string Subclass { get; set; } = "";
-        public int Level { get; set; }
+        public int Level { get; set; } = 1;
 
         public string Background { get; set; } = "";
         public string Alignment { get; set; } = "";
@@ -26,50 +23,66 @@ namespace DnDesktop.Models
         public int Age { get; set; }
 
         // Physical
-        public string Size { get; set; } = "";
+        public string Size { get; set; } = "Medium";
         public double HeightFeet { get; set; }
         public double WeightLbs { get; set; }
         public string Eyes { get; set; } = "";
         public string Hair { get; set; } = "";
         public string Skin { get; set; } = "";
 
-        // Character Stats
+        // Ability Scores
         public AbilityScores AbilityScores { get; set; }
+            = new AbilityScores();
 
-        // Combat
+        // Combat Statistics
         public CombatStats Combat { get; set; }
+            = new CombatStats();
 
         // Skills
         public List<Skill> Skills { get; set; }
+            = new List<Skill>();
 
         // Saving Throws
         public List<SavingThrow> SavingThrows { get; set; }
+            = new List<SavingThrow>();
 
         // Languages
         public List<string> Languages { get; set; }
+            = new List<string>();
 
         // Proficiencies
         public List<string> ArmorProficiencies { get; set; }
+            = new List<string>();
+
         public List<string> WeaponProficiencies { get; set; }
+            = new List<string>();
+
         public List<string> ToolProficiencies { get; set; }
+            = new List<string>();
 
         // Equipment
         public List<Item> Inventory { get; set; }
+            = new List<Item>();
 
         // Currency
         public Currency Currency { get; set; }
+            = new Currency();
 
         // Features
         public List<Feature> Features { get; set; }
+            = new List<Feature>();
 
         // Feats
         public List<Feat> Feats { get; set; }
+            = new List<Feat>();
 
         // Spells
         public Spellcasting Spellcasting { get; set; }
+            = new Spellcasting();
 
         // Personality
         public Personality Personality { get; set; }
+            = new Personality();
 
         // Notes
         public string Notes { get; set; } = "";
@@ -89,29 +102,31 @@ namespace DnDesktop.Models
 
     public class AbilityScores
     {
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Constitution { get; set; }
-        public int Intelligence { get; set; }
-        public int Wisdom { get; set; }
-        public int Charisma { get; set; }
+        public int Strength { get; set; } = 10;
+        public int Dexterity { get; set; } = 10;
+        public int Constitution { get; set; } = 10;
+        public int Intelligence { get; set; } = 10;
+        public int Wisdom { get; set; } = 10;
+        public int Charisma { get; set; } = 10;
     }
 
     public class CombatStats
     {
-        public int ArmorClass { get; set; }
+        public int ArmorClass { get; set; } = 10;
         public int Initiative { get; set; }
 
-        public int MaxHitPoints { get; set; }
-        public int CurrentHitPoints { get; set; }
+        public int MaxHitPoints { get; set; } = 10;
+        public int CurrentHitPoints { get; set; } = 10;
         public int TemporaryHitPoints { get; set; }
 
-        public int Speed { get; set; }
-        public int HitDice { get; set; }
+        public int Speed { get; set; } = 30;
 
-        public int PassivePerception { get; set; }
-        public int PassiveInvestigation { get; set; }
-        public int PassiveInsight { get; set; }
+        // Number of hit dice, e.g. 1 for a level-one character.
+        public int HitDice { get; set; } = 1;
+
+        public int PassivePerception { get; set; } = 10;
+        public int PassiveInvestigation { get; set; } = 10;
+        public int PassiveInsight { get; set; } = 10;
 
         public int DeathSaveSuccesses { get; set; }
         public int DeathSaveFailures { get; set; }
@@ -171,6 +186,7 @@ namespace DnDesktop.Models
         public int SpellAttackBonus { get; set; }
 
         public List<Spell> KnownSpells { get; set; }
+            = new List<Spell>();
     }
 
     public class Spell

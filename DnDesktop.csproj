@@ -234,11 +234,83 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CampaignEditorPage.xaml.cs">
+      <DependentUpon>CampaignEditorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CampaignSessionEditorWindow.xaml.cs">
+      <DependentUpon>CampaignSessionEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CampaignsPage.xaml.cs">
+      <DependentUpon>CampaignsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreatureEditorPage.xaml.cs">
+      <DependentUpon>CreatureEditorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreaturesPage.xaml.cs">
+      <DependentUpon>CreaturesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CampaignLocationRepository.cs" />
+    <Compile Include="Data\CampaignMembershipRepository.cs" />
+    <Compile Include="Data\CampaignRepository.cs" />
+    <Compile Include="Data\CampaignSessionRepository.cs" />
+    <Compile Include="Data\CreatureRepository.cs" />
+    <Compile Include="Data\QuestRepository.cs" />
+    <Compile Include="Data\SessionEncounterRepository.cs" />
+    <Compile Include="ImagePathToBitmapConverter.cs" />
+    <Compile Include="LocationEditorPage.xaml.cs">
+      <DependentUpon>LocationEditorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Campaign.cs" />
+    <Compile Include="Models\CampaignSession.cs" />
+    <Compile Include="Models\Creature.cs" />
+    <Compile Include="Models\CreatureAbility.cs" />
+    <Compile Include="Models\CreatureAttack.cs" />
+    <Compile Include="Models\EncounterCombatant.cs" />
+    <Compile Include="Models\Quest.cs" />
+    <Compile Include="Models\SessionEncounter.cs" />
+    <Compile Include="Models\SessionEncounterCreature.cs" />
+    <Compile Include="QuestEditorWindow.xaml.cs">
+      <DependentUpon>QuestEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\LocationImageService.cs" />
+    <Compile Include="Services\LocationImageStorage.cs" />
+    <Compile Include="SessionEncounterEditorWindow.xaml.cs">
+      <DependentUpon>SessionEncounterEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LocationListItem.cs" />
+    <Page Include="CampaignEditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CampaignSessionEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CampaignsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CharacterEditorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CharactersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreatureEditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreaturesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LocationEditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LocationsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,6 +324,10 @@
     </Compile>
     <Compile Include="CampaignEntity.cs" />
     <Compile Include="Data\CharacterRepository.cs" />
+    <Compile Include="Data\LocationRepository.cs" />
+    <Compile Include="LocationsPage.xaml.cs">
+      <DependentUpon>LocationsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Character.cs" />
     <Compile Include="CharacterEditorPage.xaml.cs">
       <DependentUpon>CharacterEditorPage.xaml</DependentUpon>
@@ -264,8 +340,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="QuestEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SessionEncounterEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

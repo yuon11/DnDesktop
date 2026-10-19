@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DnDesktop"
         Title="DnDesktop Application"         
-        Height="600"
+        Height="800"
         Width="1000">
 
     <Grid>
@@ -20,22 +20,32 @@
 
             <Button Content="Campaigns"
                     Click="SelectCampaignsClick"
+                    Padding="10,5"
                     Margin="10"/>
             
             <Button Content="Characters"
                     Click="SelectCharactersClick"
+                    Padding="10,5"
                     Margin="10"/>
 
             <Button Content="Locations"
                     Click="SelectLocationsClick"
+                    Padding="10,5"
                     Margin="10"/>
 
-            <Button Content="Quests"
-                    Click="SelectQuestsClick"
+            <Button Content="Creatures"
+                    Click="SelectCreaturesClick"
+                    Padding="10,5"
                     Margin="10"/>
             
             <Button Content="General Notes"
                     Click="SelectGeneralNotesClick"
+                    Padding="10,5"
+                    Margin="10"/>
+
+            <Button Content="Main Menu"
+                    Click="SelectMainMenuClick"
+                    Padding="10,5"
                     Margin="10"/>
         </StackPanel>
 
