@@ -49,7 +49,6 @@ namespace DnDesktop
 
         void SelectCreaturesClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("SelectCreaturesClick clicked!");
             MainFrame.Navigate(new CreaturesPage());
         }
 

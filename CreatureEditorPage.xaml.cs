@@ -5,6 +5,12 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using DnDesktop.Services;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
+using Microsoft.Win32;
+using System.Windows.Media.Imaging;
 
 namespace DnDesktop
 {
@@ -13,13 +19,16 @@ namespace DnDesktop
         private readonly CreatureRepository _repository;
         private readonly Creature _creature;
         private readonly bool _isNewCreature;
+        private readonly CreatureImageService _imageService;
+        private readonly ObservableCollection<CreatureImage> _images;
 
         public CreatureEditorPage(Creature creature)
         {
             InitializeComponent();
 
             _repository = new CreatureRepository();
-
+            _imageService = new CreatureImageService();
+            _images = new ObservableCollection<CreatureImage>();
             _isNewCreature = creature == null;
             _creature = creature ?? new Creature();
 
@@ -28,6 +37,8 @@ namespace DnDesktop
                 : "Edit Creature";
 
             LoadCreature();
+            CreatureImagesListBox.ItemsSource = _images;
+            LoadCreatureImages();
         }
 
         private void LoadCreature()
@@ -95,6 +106,249 @@ namespace DnDesktop
 
             CharismaTextBox.Text =
                 _creature.Charisma.ToString();
+        }
+        private void LoadCreatureImages()
+        {
+            try
+            {
+                _images.Clear();
+
+                // A new creature has not been saved yet, so it has no images.
+                if (_isNewCreature)
+                {
+                    CreatureImagePreview.Source = null;
+                    return;
+                }
+
+                var creatureImages = _imageService.GetImages(_creature.Id);
+
+                foreach (CreatureImage image in creatureImages)
+                {
+                    _images.Add(image);
+                }
+
+                // Show the primary image when opening an existing creature.
+                CreatureImage primaryImage =
+                    creatureImages.FirstOrDefault(image => image.IsPrimary);
+
+                if (primaryImage != null &&
+                    !string.IsNullOrWhiteSpace(primaryImage.ImagePath) &&
+                    File.Exists(primaryImage.ImagePath))
+                {
+                    CreatureImagePreview.Source = new BitmapImage(
+                        new Uri(primaryImage.ImagePath, UriKind.Absolute));
+                }
+                else
+                {
+                    CreatureImagePreview.Source = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not load creature images.\n\n" + ex.Message,
+                    "Image Loading Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private void CreatureImagesListBox_SelectionChanged(
+            object sender,
+            SelectionChangedEventArgs e)
+        {
+            CreatureImage selectedImage =
+                CreatureImagesListBox.SelectedItem as CreatureImage;
+
+            if (selectedImage == null ||
+                string.IsNullOrWhiteSpace(selectedImage.ImagePath) ||
+                !File.Exists(selectedImage.ImagePath))
+            {
+                CreatureImagePreview.Source = null;
+                return;
+            }
+
+            try
+            {
+                BitmapImage bitmap = new BitmapImage();
+
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.UriSource = new Uri(
+                    selectedImage.ImagePath,
+                    UriKind.Absolute);
+                bitmap.EndInit();
+
+                CreatureImagePreview.Source = bitmap;
+            }
+            catch (Exception ex)
+            {
+                CreatureImagePreview.Source = null;
+
+                MessageBox.Show(
+                    "Could not display the selected image.\n\n" + ex.Message,
+                    "Image Preview Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+            }
+        }
+
+
+        private void ImportImage_Click(object sender, RoutedEventArgs e)
+        {
+            // A new creature must be saved before images can be attached.
+            if (_isNewCreature)
+            {
+                MessageBox.Show(
+                    "Please save the creature before importing images.",
+                    "Save Creature First",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Title = "Select a Creature Image",
+                Filter =
+                    "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.tif;*.tiff|" +
+                    "All Files|*.*",
+                Multiselect = false
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            try
+            {
+                CreatureImage importedImage = _imageService.ImportImage(
+                    _creature.Id,
+                    dialog.FileName,
+                    Path.GetFileNameWithoutExtension(dialog.FileName),
+                    "Other",
+                    _images.Count == 0);
+
+                _images.Add(importedImage);
+                CreatureImagesListBox.SelectedItem = importedImage;
+
+                MessageBox.Show(
+                    "Image imported successfully.",
+                    "Import Complete",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not import the image.\n\n" + ex.Message,
+                    "Image Import Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+
+
+        private void SetPrimaryImage_Click(object sender, RoutedEventArgs e)
+        {
+            CreatureImage selectedImage =
+                CreatureImagesListBox.SelectedItem as CreatureImage;
+
+            if (selectedImage == null)
+            {
+                MessageBox.Show(
+                    "Please select an image first.",
+                    "No Image Selected",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+
+            try
+            {
+                _imageService.SetPrimaryImage(
+                    _creature.Id,
+                    selectedImage.Id);
+
+                // Update the in-memory list to reflect the saved selection.
+                foreach (CreatureImage image in _images)
+                {
+                    image.IsPrimary = image.Id == selectedImage.Id;
+                }
+
+                // Refresh the preview.
+                CreatureImagesListBox.SelectedItem = null;
+                CreatureImagesListBox.SelectedItem = selectedImage;
+
+                MessageBox.Show(
+                    "The primary image has been updated.",
+                    "Primary Image Updated",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not set the primary image.\n\n" + ex.Message,
+                    "Image Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+
+
+        private void DeleteImage_Click(object sender, RoutedEventArgs e)
+        {
+            CreatureImage selectedImage =
+                CreatureImagesListBox.SelectedItem as CreatureImage;
+
+            if (selectedImage == null)
+            {
+                MessageBox.Show(
+                    "Please select an image to delete.",
+                    "No Image Selected",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show(
+                "Are you sure you want to delete this image?\n\n" +
+                selectedImage.Caption,
+                "Confirm Image Deletion",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            try
+            {
+                Guid deletedImageId = selectedImage.Id;
+
+                _imageService.DeleteImage(deletedImageId);
+
+                _images.Remove(selectedImage);
+                CreatureImagesListBox.SelectedItem = null;
+
+                // Refresh the preview after deleting the selected image.
+                CreatureImagePreview.Source = null;
+
+                MessageBox.Show(
+                    "Image deleted successfully.",
+                    "Delete Complete",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not delete the image.\n\n" + ex.Message,
+                    "Image Deletion Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
 
         private void SetComboBoxValue(

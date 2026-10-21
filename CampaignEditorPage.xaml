@@ -44,6 +44,56 @@
                      VerticalScrollBarVisibility="Auto"
                      Margin="0,0,0,20"/>
 
+            <GroupBox Header="Sessions"
+                      Padding="10"
+                      Margin="0,0,0,15">
+                <StackPanel>
+                    <TextBlock Text="Manage the sessions associated with this campaign."
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,8"/>
+
+                    <ListView x:Name="SessionsListView"
+                              MinHeight="120"
+                              MaxHeight="250"
+                              SelectionMode="Single">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Session"
+                                    Width="200"
+                                    DisplayMemberBinding="{Binding Title}"/>
+
+                                <GridViewColumn Header="Date"
+                                    Width="130"
+                                    DisplayMemberBinding="{Binding SessionDate, StringFormat={}{0:MMM d, yyyy}}"/>
+
+                                <GridViewColumn Header="Status"
+                                    Width="110"
+                                    DisplayMemberBinding="{Binding Status}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,10,0,0">
+                        <Button Content="Create Session"
+                    Click="CreateSession_Click"
+                    Padding="10,5"
+                    Margin="4"/>
+
+                        <Button Content="Edit Session"
+                    Click="EditSession_Click"
+                    Padding="10,5"
+                    Margin="4"/>
+
+                        <Button Content="Delete Session"
+                    Click="DeleteSession_Click"
+                    Padding="10,5"
+                    Margin="4"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            
             <GroupBox Header="Main Party"
                       Padding="10"
                       Margin="0,0,0,15">
@@ -184,56 +234,7 @@
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox Header="Sessions"
-                      Padding="10"
-                      Margin="0,0,0,15">
-                <StackPanel>
-                    <TextBlock
-                        Text="Manage the sessions associated with this campaign."
-                        TextWrapping="Wrap"
-                        Margin="0,0,0,8"/>
-
-                    <ListView x:Name="SessionsListView"
-                              MinHeight="120"
-                              MaxHeight="250"
-                              SelectionMode="Single">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Session"
-                                                Width="200"
-                                                DisplayMemberBinding="{Binding Title}"/>
-
-                                <GridViewColumn Header="Date"
-                                                Width="130"
-                                                DisplayMemberBinding="{Binding SessionDate, StringFormat={}{0:MMM d, yyyy}}"/>
-
-                                <GridViewColumn Header="Status"
-                                                Width="110"
-                                                DisplayMemberBinding="{Binding Status}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Right"
-                                Margin="0,10,0,0">
-                        <Button Content="Create Session"
-                                Click="CreateSession_Click"
-                                Padding="10,5"
-                                Margin="4"/>
-
-                        <Button Content="Edit Session"
-                                Click="EditSession_Click"
-                                Padding="10,5"
-                                Margin="4"/>
-
-                        <Button Content="Delete Session"
-                                Click="DeleteSession_Click"
-                                Padding="10,5"
-                                Margin="4"/>
-                    </StackPanel>
-                </StackPanel>
-            </GroupBox>
+            
 
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Right"

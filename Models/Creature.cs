@@ -7,6 +7,9 @@ namespace DnDesktop.Models
     {
         public Guid Id { get; set; }
 
+        // Display-only path for the creature card's primary image.
+        public string PrimaryImagePath { get; set; } = "";
+
         // Identity
         public string Name { get; set; }
         public string CreatureType { get; set; }

@@ -1,0 +1,104 @@
+﻿<Window x:Class="DnDesktop.CombatantEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit Combatant"
+        Height="500"
+        Width="450"
+        MinHeight="450"
+        MinWidth="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock x:Name="CombatantNameTextBlock"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Margin="0,0,0,5"/>
+
+            <TextBlock x:Name="CombatantTypeTextBlock"
+                       Foreground="Gray"
+                       Margin="0,0,0,20"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.Column="0"
+                            Margin="0,0,10,12">
+                    <TextBlock Text="Initiative"
+                               Margin="0,0,0,4"/>
+                    <TextBox x:Name="InitiativeTextBox"
+                             Padding="6"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1"
+                            Margin="0,0,0,12">
+                    <TextBlock Text="Armor Class"
+                               Margin="0,0,0,4"/>
+                    <TextBox x:Name="ArmorClassTextBox"
+                             Padding="6"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="0"
+                            Margin="0,0,10,12">
+                    <TextBlock Text="Current HP"
+                               Margin="0,0,0,4"/>
+                    <TextBox x:Name="CurrentHPTextBox"
+                             Padding="6"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1"
+                            Margin="0,0,0,12">
+                    <TextBlock Text="Maximum HP"
+                               Margin="0,0,0,4"/>
+                    <TextBox x:Name="MaxHPTextBox"
+                             Padding="6"/>
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="Conditions"
+                       Margin="0,0,0,4"/>
+            <TextBox x:Name="ConditionsTextBox"
+                     MinHeight="65"
+                     Padding="6"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"
+                     Margin="0,0,0,15"/>
+
+            <CheckBox x:Name="IsDefeatedCheckBox"
+                      Content="Defeated"
+                      Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,15,0,0">
+            <Button Content="Save"
+                    Click="Save_Click"
+                    MinWidth="90"
+                    Padding="10,6"
+                    Margin="5"/>
+
+            <Button Content="Cancel"
+                    Click="Cancel_Click"
+                    MinWidth="90"
+                    Padding="10,6"
+                    Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

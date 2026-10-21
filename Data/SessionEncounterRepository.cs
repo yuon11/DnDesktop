@@ -452,5 +452,37 @@ namespace DnDesktop.Data
                     DateTimeStyles.RoundtripKind)
             };
         }
+
+        public Guid GetCampaignIdForSession(Guid sessionId)
+        {
+            using (var connection =
+                new SQLiteConnection(_connectionString))
+            {
+                connection.Open();
+
+                const string sql = @"
+            SELECT CampaignId
+            FROM CampaignSessions
+            WHERE Id = @SessionId;";
+
+                using (var command =
+                    new SQLiteCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue(
+                        "@SessionId", sessionId.ToString());
+
+                    object result = command.ExecuteScalar();
+
+                    if (result == null || result == DBNull.Value)
+                    {
+                        throw new InvalidOperationException(
+                            "The campaign session could not be found.");
+                    }
+
+                    return Guid.Parse(result.ToString());
+                }
+            }
+        }
+
     }
 }

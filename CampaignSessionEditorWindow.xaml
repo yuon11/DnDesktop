@@ -126,21 +126,37 @@
                             TextWrapping="Wrap"
                             Margin="0,0,0,8"/>
 
+
                         <ListView x:Name="EncountersListView"
                                   MinHeight="120"
-                                  MaxHeight="220"
-                                  SelectionMode="Single">
-
+                                  MaxHeight="260"
+                                  SelectionMode="Single"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Auto">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn
                                         Header="Encounter"
-                                        Width="450"
+                                        Width="150"
                                         DisplayMemberBinding="{Binding Name}"/>
+
+                                    <GridViewColumn
+                                        Header="Created"
+                                        Width="150"
+                                        DisplayMemberBinding="{Binding CreatedDate,
+                                            StringFormat={}{0:MMM d, yyyy h:mm tt}}"/>
+                                    <GridViewColumn
+                                        Header="Last Modified"
+                                        Width="150"
+                                        DisplayMemberBinding="{Binding LastModified,
+                                            StringFormat={}{0:MMM d, yyyy h:mm tt}}"/>
+                                    <GridViewColumn
+                                        Header="Encounter Notes"
+                                        Width="300"
+                                        DisplayMemberBinding="{Binding EncounterNotes}"/>
                                 </GridView>
                             </ListView.View>
-
                         </ListView>
+
 
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Right"

@@ -1,15 +1,15 @@
 ﻿
 using DnDesktop.Data;
-using DnDesktop;
 using DnDesktop.Models;
+using DnDesktop.Services;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
-
 
 namespace DnDesktop
 {
@@ -26,14 +26,23 @@ namespace DnDesktop
             get;
             set;
         }
+        private Character _selectedCharacter;
 
+        public Character SelectedCharacter
+        {
+            get { return _selectedCharacter; }
+            set { _selectedCharacter = value; }
+        }
         private readonly CharacterRepository _repository;
+        private readonly CharacterImageService _characterImageService;
 
         public CharactersPage()
         {
             InitializeComponent();
 
             _repository = new CharacterRepository();
+            _characterImageService = new CharacterImageService();
+
             Characters = new ObservableCollection<Character>();
 
             DataContext = this;
@@ -50,6 +59,17 @@ namespace DnDesktop
 
                 foreach (Character character in _repository.GetAll())
                 {
+                    List<CharacterImage> images =
+                        _characterImageService.GetImages(character.Id);
+
+                    CharacterImage primaryImage =
+                        images.FirstOrDefault(image => image.IsPrimary);
+
+                    character.PrimaryImagePath =
+                        primaryImage != null
+                            ? primaryImage.ImagePath
+                            : string.Empty;
+
                     Characters.Add(character);
                 }
             }
@@ -71,7 +91,7 @@ namespace DnDesktop
 
         private Character GetSelectedCharacter()
         {
-            return CharacterList.SelectedItem as Character;
+            return SelectedCharacter;
         }
 
         private void CreateCharacter_Click(object sender, RoutedEventArgs e)

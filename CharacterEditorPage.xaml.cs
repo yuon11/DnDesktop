@@ -7,6 +7,9 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using DnDesktop.Services;
+using Microsoft.Win32;
+using System.IO;
 
 namespace DnDesktop
 {
@@ -51,6 +54,7 @@ namespace DnDesktop
 
             LoadCharacter();
             RefreshFeatsList();
+            RefreshCharacterImages();
         }
 
         private void LoadCharacter()
@@ -502,6 +506,431 @@ namespace DnDesktop
                 NavigationService.CanGoBack)
             {
                 NavigationService.GoBack();
+            }
+        }
+        private void TestCharacterImageService_Click(
+            object sender, RoutedEventArgs e)
+        {
+            if (_character == null || _character.Id == Guid.Empty)
+            {
+                MessageBox.Show(
+                    "Open an existing, saved character before running this test.",
+                    "Character Image Test",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
+                return;
+            }
+
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Title = "Select a test image",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.tif;*.tiff"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            CharacterImageService service = new CharacterImageService();
+            DnDesktop.Models.CharacterImage importedImage = null;
+
+            try
+            {
+                // Import the image and save its metadata.
+                importedImage = service.ImportImage(
+                    _character.Id,
+                    dialog.FileName,
+                    "Temporary service test",
+                    "Other",
+                    false);
+
+                // Confirm the stored file exists.
+                bool fileExists = File.Exists(importedImage.ImagePath);
+
+                // Confirm the image can be retrieved from SQLite.
+                var images = service.GetImages(_character.Id);
+
+                bool recordExists = images.Exists(
+                    image => image.Id == importedImage.Id);
+
+                if (!fileExists || !recordExists)
+                {
+                    throw new InvalidOperationException(
+                        "The image file or database record could not be verified.");
+                }
+
+                // Delete only the imported copy and its database record.
+                bool deleted = service.DeleteImage(importedImage.Id);
+
+                if (!deleted)
+                {
+                    throw new InvalidOperationException(
+                        "The imported image record could not be deleted.");
+                }
+
+                importedImage = null;
+
+                MessageBox.Show(
+                    "Character image service test passed!\n\n" +
+                    "Image copied to managed storage: Yes\n" +
+                    "Database record created and retrieved: Yes\n" +
+                    "Managed copy and test record deleted: Yes\n\n" +
+                    "Your original image was not modified.",
+                    "Character Image Test",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                // Clean up the test import if it succeeded but a later check failed.
+                if (importedImage != null)
+                {
+                    try
+                    {
+                        service.DeleteImage(importedImage.Id);
+                    }
+                    catch
+                    {
+                        // Preserve the original test error for reporting.
+                    }
+                }
+
+                MessageBox.Show(
+                    "Character image service test failed:\n\n" + ex.Message,
+                    "Character Image Test",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private void RefreshCharacterImages()
+        {
+            CharacterImagesListBox.ItemsSource = null;
+
+            if (_character == null || _character.Id == Guid.Empty)
+            {
+                CharacterImagesListBox.ItemsSource =
+                    new List<CharacterImage>();
+                return;
+            }
+
+            try
+            {
+                CharacterImageService service =
+                    new CharacterImageService();
+
+                CharacterImagesListBox.ItemsSource =
+                    service.GetImages(_character.Id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not load character images.\n\n" + ex.Message,
+                    "Image Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private void ImportCharacterImage_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            if (_isNewCharacter || _character.Id == Guid.Empty)
+            {
+                MessageBox.Show(
+                    "Save the character before importing images. " +
+                    "After saving, reopen the character to manage its images.",
+                    "Save Character First",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Title = "Select a Character Image",
+                Filter =
+                    "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.tif;*.tiff",
+                Multiselect = false
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            string caption;
+            string category;
+
+            if (!ShowImageDetailsDialog(
+                Path.GetFileNameWithoutExtension(dialog.FileName),
+                out caption,
+                out category))
+            {
+                return;
+            }
+
+            try
+            {
+                CharacterImageService service =
+                    new CharacterImageService();
+
+                service.ImportImage(
+                    _character.Id,
+                    dialog.FileName,
+                    caption,
+                    category,
+                    false);
+
+                RefreshCharacterImages();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not import the character image.\n\n" + ex.Message,
+                    "Image Import Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+
+        private bool ShowImageDetailsDialog(
+            string defaultCaption,
+            out string caption,
+            out string category)
+        {
+            caption = string.Empty;
+            category = "Other";
+
+            TextBox captionTextBox = new TextBox
+            {
+                Text = defaultCaption,
+                MinWidth = 300,
+                Margin = new Thickness(0, 4, 0, 12),
+                Padding = new Thickness(6)
+            };
+
+            ComboBox categoryComboBox = new ComboBox
+            {
+                MinWidth = 300,
+                Margin = new Thickness(0, 4, 0, 12),
+                Padding = new Thickness(4),
+                IsEditable = false
+            };
+
+            string[] categories =
+            {
+                "Portrait",
+                "Appearance",
+                "Equipment",
+                "Reference",
+                "Other"
+            };
+
+            foreach (string item in categories)
+                categoryComboBox.Items.Add(item);
+
+            categoryComboBox.SelectedItem = "Portrait";
+
+            StackPanel content = new StackPanel
+            {
+                Margin = new Thickness(18)
+            };
+
+            content.Children.Add(new TextBlock
+            {
+                Text = "Caption",
+                FontWeight = FontWeights.Bold
+            });
+            content.Children.Add(captionTextBox);
+
+            content.Children.Add(new TextBlock
+            {
+                Text = "Image Category",
+                FontWeight = FontWeights.Bold
+            });
+            content.Children.Add(categoryComboBox);
+
+            StackPanel buttons = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+                HorizontalAlignment = HorizontalAlignment.Right
+            };
+
+            Button importButton = new Button
+            {
+                Content = "Import",
+                Width = 85,
+                Height = 30,
+                Margin = new Thickness(0, 0, 8, 0),
+                IsDefault = true
+            };
+
+            Button cancelButton = new Button
+            {
+                Content = "Cancel",
+                Width = 85,
+                Height = 30,
+                IsCancel = true
+            };
+
+            buttons.Children.Add(importButton);
+            buttons.Children.Add(cancelButton);
+            content.Children.Add(buttons);
+
+            Window dialog = new Window
+            {
+                Title = "Image Details",
+                Content = content,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                ResizeMode = ResizeMode.NoResize,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                Owner = Window.GetWindow(this)
+            };
+
+            // Store the values in local variables inside the event handler.
+            string selectedCaption = string.Empty;
+            string selectedCategory = "Other";
+
+            importButton.Click += (sender, e) =>
+            {
+                selectedCaption = captionTextBox.Text.Trim();
+
+                selectedCategory =
+                    categoryComboBox.SelectedItem as string ?? "Other";
+
+                dialog.DialogResult = true;
+            };
+
+            captionTextBox.Focus();
+
+            bool confirmed = dialog.ShowDialog() == true;
+
+            // Assign the out parameters after the lambda has finished.
+            if (confirmed)
+            {
+                caption = selectedCaption;
+                category = selectedCategory;
+            }
+
+            return confirmed;
+        }
+
+
+        private void SetPrimaryCharacterImage_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            CharacterImage selectedImage =
+                CharacterImagesListBox.SelectedItem as CharacterImage;
+
+            if (selectedImage == null)
+            {
+                MessageBox.Show(
+                    "Select an image to make it the primary image.",
+                    "No Image Selected",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+
+            try
+            {
+                CharacterImageService service =
+                    new CharacterImageService();
+
+                CharacterImageRepository repository =
+                    new CharacterImageRepository();
+
+                List<CharacterImage> images =
+                    service.GetImages(_character.Id);
+
+                foreach (CharacterImage image in images)
+                {
+                    bool shouldBePrimary = image.Id == selectedImage.Id;
+
+                    if (image.IsPrimary != shouldBePrimary)
+                    {
+                        image.IsPrimary = shouldBePrimary;
+                        repository.UpdateImage(image);
+                    }
+                }
+
+                RefreshCharacterImages();
+
+                MessageBox.Show(
+                    "Primary character image updated.",
+                    "Image Updated",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not update the primary image.\n\n" + ex.Message,
+                    "Image Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+
+                RefreshCharacterImages();
+            }
+        }
+
+        private void DeleteCharacterImage_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            CharacterImage selectedImage =
+                CharacterImagesListBox.SelectedItem as CharacterImage;
+
+            if (selectedImage == null)
+            {
+                MessageBox.Show(
+                    "Select an image to delete.",
+                    "No Image Selected",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show(
+                "Delete the selected character image?\n\n" +
+                "The managed copy and its database record will be deleted. " +
+                "Your original source image will not be affected.",
+                "Confirm Image Deletion",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            try
+            {
+                CharacterImageService service =
+                    new CharacterImageService();
+
+                bool deleted = service.DeleteImage(selectedImage.Id);
+
+                if (!deleted)
+                {
+                    MessageBox.Show(
+                        "The image record could not be found.",
+                        "Image Not Found",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                }
+
+                RefreshCharacterImages();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not delete the character image.\n\n" + ex.Message,
+                    "Image Deletion Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+
+                RefreshCharacterImages();
             }
         }
     }

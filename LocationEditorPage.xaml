@@ -274,6 +274,7 @@
                               IsEnabled="False">
                         <ComboBoxItem Content="Other"/>
                         <ComboBoxItem Content="Map"/>
+                        <ComboBoxItem Content="BattleMap"/>
                         <ComboBoxItem Content="Landscape"/>
                         <ComboBoxItem Content="Portrait"/>
                         <ComboBoxItem Content="Interior"/>

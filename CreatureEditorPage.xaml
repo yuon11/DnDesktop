@@ -26,6 +26,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- Page title -->
@@ -326,8 +327,75 @@
                 </Grid>
             </GroupBox>
 
+
+            <!-- Creature images -->
+            <GroupBox Grid.Row="4"
+                      Grid.ColumnSpan="2"
+                      Header="Creature Images"
+                      Padding="12"
+                      Margin="0,0,0,16">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0"
+                                Orientation="Horizontal"
+                                Margin="0,0,0,10">
+
+                        <Button x:Name="ImportImageButton"
+                                Content="Import Image"
+                                Width="110"
+                                Margin="0,0,8,0"
+                                Padding="6"
+                                Click="ImportImage_Click"/>
+
+                        <Button x:Name="SetPrimaryImageButton"
+                                Content="Set as Primary"
+                                Width="110"
+                                Margin="0,0,8,0"
+                                Padding="6"
+                                Click="SetPrimaryImage_Click"/>
+
+                        <Button x:Name="DeleteImageButton"
+                                Content="Delete Image"
+                                Width="110"
+                                Padding="6"
+                                Click="DeleteImage_Click"/>
+                    </StackPanel>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="220"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ListBox x:Name="CreatureImagesListBox"
+                                 Grid.Column="0"
+                                 MinHeight="120"
+                                 MaxHeight="200"
+                                 Margin="0,0,12,0"
+                                 DisplayMemberPath="Caption"
+                                 SelectionChanged="CreatureImagesListBox_SelectionChanged"/>
+
+                        <Border Grid.Column="1"
+                                BorderBrush="#CCCCCC"
+                                BorderThickness="1"
+                                Background="#F3F3F3"
+                                Padding="5">
+
+                            <Image x:Name="CreatureImagePreview"
+                                   Stretch="Uniform"
+                                   Height="180"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+
             <!-- Save and Cancel -->
-            <StackPanel Grid.Row="4"
+            <StackPanel Grid.Row="5"
                         Grid.ColumnSpan="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Right"

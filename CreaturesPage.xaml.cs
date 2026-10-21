@@ -7,12 +7,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
+using DnDesktop.Services;
+using System.Linq;
 
 namespace DnDesktop
 {
     public partial class CreaturesPage : Page
     {
         private readonly CreatureRepository _repository;
+        private readonly CreatureImageService _creatureImageService;
 
         public ObservableCollection<Creature> Creatures { get; private set; }
 
@@ -21,6 +24,7 @@ namespace DnDesktop
             InitializeComponent();
 
             _repository = new CreatureRepository();
+            _creatureImageService = new CreatureImageService();
             Creatures = new ObservableCollection<Creature>();
 
             CreatureList.ItemsSource = Creatures;
@@ -49,6 +53,16 @@ namespace DnDesktop
 
                 foreach (Creature creature in creatures)
                 {
+                    var images = _creatureImageService.GetImages(creature.Id);
+
+                    var primaryImage =
+                        images.FirstOrDefault(image => image.IsPrimary);
+
+                    creature.PrimaryImagePath =
+                        primaryImage != null
+                            ? primaryImage.ImagePath
+                            : string.Empty;
+
                     Creatures.Add(creature);
                 }
             }

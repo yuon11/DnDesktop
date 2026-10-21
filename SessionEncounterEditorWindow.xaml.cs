@@ -1,31 +1,34 @@
 ﻿
 using DnDesktop.Data;
 using DnDesktop.Models;
+using DnDesktop.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace DnDesktop
 {
     public partial class SessionEncounterEditorWindow : Window
     {
+        private readonly EncounterCombatService _combatService =
+            new EncounterCombatService();
+
         private readonly SessionEncounterRepository _repository =
             new SessionEncounterRepository();
 
-        private readonly CreatureRepository _creatureRepository =
-            new CreatureRepository();
 
         private readonly Guid _sessionId;
         private readonly SessionEncounter _encounter;
         private readonly bool _isNewEncounter;
 
-        private readonly List<SessionEncounterCreature> _assignments =
-            new List<SessionEncounterCreature>();
+        private Guid _campaignId;
 
-        private List<Creature> _availableCreatures =
-            new List<Creature>();
+        private List<EncounterCombatant> _availableParticipants =
+            new List<EncounterCombatant>();
+
+        private readonly List<EncounterCombatant> _combatants =
+            new List<EncounterCombatant>();
 
         // Create a new encounter.
         public SessionEncounterEditorWindow(Guid sessionId)
@@ -40,9 +43,6 @@ namespace DnDesktop
             };
 
             _isNewEncounter = true;
-
-            LoadCreatures();
-            RefreshCreatureAssignments();
         }
 
         // Edit an existing encounter.
@@ -57,7 +57,8 @@ namespace DnDesktop
             _encounter = _repository.GetById(encounterId);
             _isNewEncounter = false;
 
-            if (_encounter == null || _encounter.SessionId != sessionId)
+            if (_encounter == null ||
+                _encounter.SessionId != sessionId)
             {
                 MessageBox.Show(
                     "The selected encounter could not be found for this session.",
@@ -73,140 +74,15 @@ namespace DnDesktop
             EncounterNotesTextBox.Text =
                 _encounter.EncounterNotes ?? string.Empty;
 
-            LoadCreatures();
+            // Load the existing combatants and available participants.
+            LoadCombatants();
+        }        
 
-            _assignments.AddRange(
-                _repository.GetCreaturesByEncounterId(_encounter.Id));
 
-            RefreshCreatureAssignments();
-        }
-
-        private void LoadCreatures()
-        {
-            try
-            {
-                _availableCreatures = _creatureRepository.GetAll()
-                    .OrderBy(c => c.Name)
-                    .ToList();
-
-                CreatureComboBox.ItemsSource = _availableCreatures;
-
-                if (_availableCreatures.Count > 0)
-                {
-                    CreatureComboBox.SelectedIndex = 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Could not load creatures.\n\n" + ex.Message,
-                    "Creatures",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
-            }
-        }
-
-        private void RefreshCreatureAssignments()
-        {
-            foreach (SessionEncounterCreature assignment in _assignments)
-            {
-                Creature creature = _availableCreatures.FirstOrDefault(
-                    c => c.Id == assignment.CreatureId);
-
-                assignment.CreatureName =
-                    creature == null
-                        ? "(Creature no longer available)"
-                        : creature.Name;
-            }
-
-            EncounterCreaturesListView.ItemsSource = null;
-            EncounterCreaturesListView.ItemsSource =
-                _assignments.OrderBy(a => a.CreatureName).ToList();
-        }
-
-        private void AddCreature_Click(object sender, RoutedEventArgs e)
-        {
-            Creature selectedCreature =
-                CreatureComboBox.SelectedItem as Creature;
-
-            if (selectedCreature == null)
-            {
-                MessageBox.Show(
-                    "Please select a creature.",
-                    "No Creature Selected",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
-
-                return;
-            }
-
-            int quantity;
-
-            if (!int.TryParse(QuantityTextBox.Text, out quantity)
-                || quantity <= 0)
-            {
-                MessageBox.Show(
-                    "Enter a quantity greater than zero.",
-                    "Invalid Quantity",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Warning);
-
-                QuantityTextBox.Focus();
-                return;
-            }
-
-            SessionEncounterCreature existing = _assignments.FirstOrDefault(
-                a => a.CreatureId == selectedCreature.Id);
-
-            if (existing != null)
-            {
-                existing.Quantity += quantity;
-            }
-            else
-            {
-                _assignments.Add(
-                    new SessionEncounterCreature
-                    {
-                        EncounterId = _encounter.Id,
-                        CreatureId = selectedCreature.Id,
-                        CreatureName = selectedCreature.Name,
-                        Quantity = quantity
-                    });
-            }
-
-            QuantityTextBox.Text = "1";
-            RefreshCreatureAssignments();
-        }
-
-        private void RemoveCreature_Click(object sender, RoutedEventArgs e)
-        {
-            SessionEncounterCreature selected =
-                EncounterCreaturesListView.SelectedItem
-                    as SessionEncounterCreature;
-
-            if (selected == null)
-            {
-                MessageBox.Show(
-                    "Please select a creature assignment to remove.",
-                    "No Creature Selected",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
-
-                return;
-            }
-
-            SessionEncounterCreature existing = _assignments.FirstOrDefault(
-                a => a.CreatureId == selected.CreatureId);
-
-            if (existing != null)
-            {
-                _assignments.Remove(existing);
-            }
-
-            RefreshCreatureAssignments();
-        }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
+        // Save encounter details and creature assignments.
+        private void Save_Click(
+            object sender,
+            RoutedEventArgs e)
         {
             string name = NameTextBox.Text.Trim();
 
@@ -238,10 +114,6 @@ namespace DnDesktop
                     _repository.Update(_encounter);
                 }
 
-                _repository.SaveCreatures(
-                    _encounter.Id,
-                    _assignments);
-
                 DialogResult = true;
                 Close();
             }
@@ -255,10 +127,231 @@ namespace DnDesktop
             }
         }
 
-        private void Cancel_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(
+            object sender,
+            RoutedEventArgs e)
         {
             DialogResult = false;
             Close();
+        }
+
+        // Load combatants already assigned to the encounter.
+        // Also load campaign participants who have not yet been added.
+        private void LoadCombatants()
+        {
+            try
+            {
+                _campaignId =
+                    _repository.GetCampaignIdForSession(_sessionId);
+
+                _combatants.Clear();
+
+                if (!_isNewEncounter)
+                {
+                    _combatants.AddRange(
+                        _combatService.GetCombatants(_encounter.Id));
+                }
+
+                RefreshCombatants();
+                LoadAvailableCombatParticipants();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not load combatants.\n\n" + ex.Message,
+                    "Combatants",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        // Populate the dropdown with actual EncounterCombatant objects.
+        private void LoadAvailableCombatParticipants()
+        {
+            if (_isNewEncounter)
+            {
+                CombatParticipantComboBox.ItemsSource = null;
+                CombatParticipantComboBox.IsEnabled = false;
+                return;
+            }
+
+            _availableParticipants =
+                _combatService.GetAvailableParticipants(
+                    _campaignId,
+                    _encounter.Id);
+
+            CombatParticipantComboBox.ItemsSource = null;
+            CombatParticipantComboBox.DisplayMemberPath =
+                "DisplayName";
+
+            CombatParticipantComboBox.ItemsSource =
+                _availableParticipants;
+
+            CombatParticipantComboBox.IsEnabled =
+                _availableParticipants.Count > 0;
+
+            CombatParticipantComboBox.SelectedIndex =
+                _availableParticipants.Count > 0 ? 0 : -1;
+        }
+
+        // Refresh the combatant list, sorted by initiative.
+        private void RefreshCombatants()
+        {
+            CombatantsListView.ItemsSource = null;
+
+            CombatantsListView.ItemsSource =
+                _combatants
+                    .OrderByDescending(c => c.Initiative)
+                    .ThenBy(c => c.DisplayName)
+                    .ToList();
+        }
+
+        // Add the selected campaign participant to this encounter.
+
+        private void AddCombatant_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            EncounterCombatant selected =
+                CombatParticipantComboBox.SelectedItem
+                    as EncounterCombatant;
+
+            if (selected == null)
+            {
+                MessageBox.Show(
+                    "Select a participant to add.",
+                    "Combatants",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+
+                return;
+            }
+
+            int quantity = 1;
+
+            try
+            {
+                if (selected.ParticipantType != "Creature" &&
+                    quantity != 1)
+                {
+                    quantity = 1;
+                }
+
+                for (int i = 0; i < quantity; i++)
+                {
+                    var combatant = new EncounterCombatant
+                    {
+                        EncounterId = _encounter.Id,
+                        ParticipantType = selected.ParticipantType,
+                        SourceId = selected.SourceId,
+                        DisplayName = selected.DisplayName,
+                        Initiative = selected.Initiative,
+                        CurrentHP = selected.CurrentHP,
+                        MaxHP = selected.MaxHP,
+                        ArmorClass = selected.ArmorClass,
+                        Conditions = selected.Conditions,
+                        IsDefeated = selected.IsDefeated
+                    };
+
+                    _combatService.AddParticipant(combatant);
+                }
+
+                _combatants.Clear();
+
+                _combatants.AddRange(
+                    _combatService.GetCombatants(_encounter.Id));
+
+                RefreshCombatants();
+
+                // Characters and NPCs disappear once added.
+                // Creature types remain available for additional instances.
+                LoadAvailableCombatParticipants();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not add the combatant.\n\n" + ex.Message,
+                    "Combatants",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private void EditCombatant_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            EncounterCombatant selected =
+                CombatantsListView.SelectedItem as EncounterCombatant;
+
+            if (selected == null)
+            {
+                MessageBox.Show(
+                    "Select a combatant to edit.",
+                    "Combatants",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+
+                return;
+            }
+
+            var editor = new CombatantEditorWindow(selected)
+            {
+                Owner = this
+            };
+
+            if (editor.ShowDialog() == true)
+            {
+                // Reload from the database so the list shows saved values.
+                _combatants.Clear();
+
+                _combatants.AddRange(
+                    _combatService.GetCombatants(_encounter.Id));
+
+                RefreshCombatants();
+            }
+        }
+
+
+        // Remove the selected combatant from this encounter.
+        private void RemoveCombatant_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            EncounterCombatant selected =
+                CombatantsListView.SelectedItem
+                    as EncounterCombatant;
+
+            if (selected == null)
+            {
+                MessageBox.Show(
+                    "Select a combatant to remove.",
+                    "Combatants",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+
+                return;
+            }
+
+            try
+            {
+                _combatService.RemoveCombatant(selected.Id);
+
+                _combatants.RemoveAll(
+                    c => c.Id == selected.Id);
+
+                RefreshCombatants();
+                LoadAvailableCombatParticipants();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not remove the combatant.\n\n" + ex.Message,
+                    "Combatants",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
     }
 }

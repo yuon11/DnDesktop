@@ -22,6 +22,7 @@ namespace DnDesktop.Models
         public string Gender { get; set; } = "";
         public int Age { get; set; }
 
+
         // Physical
         public string Size { get; set; } = "Medium";
         public double HeightFeet { get; set; }
@@ -94,6 +95,8 @@ namespace DnDesktop.Models
 
         // Portrait
         public string PortraitPath { get; set; } = "";
+        // Display-only path for the character card's primary image.
+        public string PrimaryImagePath { get; set; } = "";
 
         // Metadata
         public DateTime CreatedDate { get; set; } = DateTime.Now;

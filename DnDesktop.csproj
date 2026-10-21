@@ -243,6 +243,9 @@
     <Compile Include="CampaignsPage.xaml.cs">
       <DependentUpon>CampaignsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CombatantEditorWindow.xaml.cs">
+      <DependentUpon>CombatantEditorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CreatureEditorPage.xaml.cs">
       <DependentUpon>CreatureEditorPage.xaml</DependentUpon>
     </Compile>
@@ -253,7 +256,11 @@
     <Compile Include="Data\CampaignMembershipRepository.cs" />
     <Compile Include="Data\CampaignRepository.cs" />
     <Compile Include="Data\CampaignSessionRepository.cs" />
+    <Compile Include="Data\CharacterImageRepository.cs" />
+    <Compile Include="Data\CombatParticipantRepository.cs" />
+    <Compile Include="Data\CreatureImageRepository.cs" />
     <Compile Include="Data\CreatureRepository.cs" />
+    <Compile Include="Data\EncounterCombatantRepository.cs" />
     <Compile Include="Data\QuestRepository.cs" />
     <Compile Include="Data\SessionEncounterRepository.cs" />
     <Compile Include="ImagePathToBitmapConverter.cs" />
@@ -262,9 +269,11 @@
     </Compile>
     <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\CampaignSession.cs" />
+    <Compile Include="Models\CharacterImage.cs" />
     <Compile Include="Models\Creature.cs" />
     <Compile Include="Models\CreatureAbility.cs" />
     <Compile Include="Models\CreatureAttack.cs" />
+    <Compile Include="Models\CreatureImage.cs" />
     <Compile Include="Models\EncounterCombatant.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\SessionEncounter.cs" />
@@ -272,6 +281,11 @@
     <Compile Include="QuestEditorWindow.xaml.cs">
       <DependentUpon>QuestEditorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\CharacterImageService.cs" />
+    <Compile Include="Services\CharacterImageStorage.cs" />
+    <Compile Include="Services\CreatureImageService.cs" />
+    <Compile Include="Services\CreatureImageStorage.cs" />
+    <Compile Include="Services\EncounterCombatService.cs" />
     <Compile Include="Services\LocationImageService.cs" />
     <Compile Include="Services\LocationImageStorage.cs" />
     <Compile Include="SessionEncounterEditorWindow.xaml.cs">
@@ -295,6 +309,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CharactersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CombatantEditorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

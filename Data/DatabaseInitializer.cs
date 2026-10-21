@@ -459,8 +459,77 @@ namespace DnDesktop.Data
 
                     CREATE INDEX IF NOT EXISTS IX_SessionEncounterCreatures_CreatureId
                         ON SessionEncounterCreatures(CreatureId);
-                ";
+                    
+                    CREATE TABLE IF NOT EXISTS EncounterCombatants
+                    (
+                        Id TEXT PRIMARY KEY,
+                        EncounterId TEXT NOT NULL,
 
+                        ParticipantType TEXT NOT NULL
+                            CHECK (ParticipantType IN ('Character', 'NPC', 'Creature')),
+
+                        SourceId TEXT NOT NULL,
+                        DisplayName TEXT NOT NULL,
+
+                        Initiative INTEGER NOT NULL DEFAULT 0,
+                        CurrentHP INTEGER NOT NULL DEFAULT 0,
+                        MaxHP INTEGER NOT NULL DEFAULT 0,
+                        ArmorClass INTEGER NOT NULL DEFAULT 10,
+
+                        Conditions TEXT,
+                        IsDefeated INTEGER NOT NULL DEFAULT 0,
+                        TurnOrder INTEGER NOT NULL DEFAULT 0,
+
+                        FOREIGN KEY (EncounterId)
+                            REFERENCES SessionEncounters(Id)
+                            ON DELETE CASCADE
+                    );
+
+                    CREATE INDEX IF NOT EXISTS IX_EncounterCombatants_EncounterId
+                        ON EncounterCombatants(EncounterId);
+
+                    CREATE INDEX IF NOT EXISTS IX_EncounterCombatants_SourceId
+                        ON EncounterCombatants(ParticipantType, SourceId);
+
+                    CREATE TABLE IF NOT EXISTS CharacterImages
+                    (
+                        Id TEXT PRIMARY KEY,
+                        CharacterId TEXT NOT NULL,
+                        ImagePath TEXT NOT NULL,
+                        Caption TEXT,
+                        ImageCategory TEXT NOT NULL DEFAULT 'Other',
+                        IsPrimary INTEGER NOT NULL DEFAULT 0,
+                        DisplayOrder INTEGER NOT NULL DEFAULT 0,
+                        CreatedDate TEXT NOT NULL,
+
+                        FOREIGN KEY (CharacterId)
+                            REFERENCES Characters(Id)
+                            ON DELETE CASCADE
+                    );
+
+                    CREATE INDEX IF NOT EXISTS IX_CharacterImages_CharacterId
+                        ON CharacterImages(CharacterId);
+
+
+                    CREATE TABLE IF NOT EXISTS CreatureImages
+                    (
+                        Id TEXT PRIMARY KEY,
+                        CreatureId TEXT NOT NULL,
+                        ImagePath TEXT NOT NULL,
+                        Caption TEXT,
+                        ImageCategory TEXT NOT NULL DEFAULT 'Other',
+                        ImageDescription TEXT,
+                        IsPrimary INTEGER NOT NULL DEFAULT 0,
+                        DisplayOrder INTEGER NOT NULL DEFAULT 0,
+                        CreatedDate TEXT NOT NULL,
+
+                        FOREIGN KEY (CreatureId)
+                            REFERENCES Creatures(Id)
+                            ON DELETE CASCADE
+                    );
+
+                    CREATE INDEX IF NOT EXISTS IX_CreatureImages_CreatureId
+                        ON CreatureImages(CreatureId);";
                 using (SQLiteCommand command =
                        new SQLiteCommand(createTables, connection))
                 {
